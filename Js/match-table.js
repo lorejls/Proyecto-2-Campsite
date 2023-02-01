@@ -64,6 +64,10 @@ function matchesTableBuilder(results){
     for(i=0; i<results.length; i++){
 
         let tr = document.createElement("tr")
+
+        let matchDayGame = document.createElement("p")
+        matchDayGame.innerHTML = results[i].matchday
+        console.log(matchDayGame)
         
         let matchDate =  new Date(results[i].utcDate)
         console.log(matchDate)
@@ -90,7 +94,7 @@ function matchesTableBuilder(results){
         awayEnsign.classList.add("images-Ensign") 
         console.log(awayEnsign)
 
-        let finalResults = [matchDate.toLocaleString(),localEnsign,homeTeamName,fullTimeScore,awayTeamName,awayEnsign]
+        let finalResults = [matchDayGame,matchDate.toLocaleString(),localEnsign,homeTeamName,fullTimeScore,awayTeamName,awayEnsign]
 
         for(j=0; j<finalResults.length; j++){
             const td = document.createElement("td")

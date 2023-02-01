@@ -52,27 +52,27 @@ function tableBuilder(results){
         console.log(won)
 
         let draw = document.createElement("p")
-        draw.innerHTML = results[i].won
+        draw.innerHTML = results[i].draw
         console.log(draw)
 
         let losts = document.createElement("p")
-        losts.innerHTML = results[i].won
+        losts.innerHTML = results[i].lost
         console.log(losts)
 
         let goalsFor = document.createElement("p")
-        goalsFor.innerHTML = results[i].won
+        goalsFor.innerHTML = results[i].goalsFor
         console.log(goalsFor)
         
         let goalsAgainst = document.createElement("p")
-        goalsAgainst.innerHTML = results[i].won
+        goalsAgainst.innerHTML = results[i].goalsAgainst
         console.log(goalsAgainst)
 
         let goalDifference = document.createElement("p")
-        goalDifference.innerHTML = results[i].won
+        goalDifference.innerHTML = results[i].goalDifference
         console.log(goalDifference)
 
         let points = document.createElement("p")
-        points.innerHTML = results[i].won
+        points.innerHTML = results[i].points
         console.log(points)
 
         let finalStandingTable = [position,ensign,team,matchesplayed,won, draw, losts, goalsFor, goalsAgainst, goalDifference, points]
