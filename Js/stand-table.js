@@ -32,9 +32,16 @@ function tableBuilder(results){
 
         let position = document.createElement("p")
         position.innerHTML = results[i].position
+        console.log(position)
+
+        let ensign = document.createElement("img")
+        ensign.setAttribute("src", results[i].team.crestUrl)
+        ensign.classList.add("images-Ensign")
+        console.log(ensign)
 
         let team = document.createElement("p")
         team.innerHTML = results[i].team.name
+        console.log(team)
 
         let matchesplayed = document.createElement("p")
         matchesplayed.innerHTML = results[i].playedGames
@@ -68,7 +75,7 @@ function tableBuilder(results){
         points.innerHTML = results[i].won
         console.log(points)
 
-        let finalStandingTable = [position,team,matchesplayed,won, draw, losts, goalsFor, goalsAgainst, goalDifference, goalDifference, points]
+        let finalStandingTable = [position,ensign,team,matchesplayed,won, draw, losts, goalsFor, goalsAgainst, goalDifference, points]
             for(let j=0; j<finalStandingTable.length; j++){
                 const td= document.createElement("td")
 

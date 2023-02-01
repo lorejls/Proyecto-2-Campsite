@@ -56,3 +56,50 @@
 
 // let homeTeamCrestThree = "https://crests.football-data.org/" + matchesData.matches[2].homeTeam.id + ".svg"
 // console.log(homeTeamCrestThree)
+
+let matchesTable = matchesData.matches
+
+function matchesTableBuilder(results){
+    let table = document.getElementById("matches-body")
+    for(i=0; i<results.length; i++){
+
+        let tr = document.createElement("tr")
+        
+        let matchDate =  new Date(results[i].utcDate)
+        console.log(matchDate)
+
+        let localEnsign = document.createElement("img")
+        localEnsign.setAttribute("src",  "https://crests.football-data.org/" + results[i].homeTeam.id + ".svg")
+        localEnsign.classList.add("images-Ensign") 
+        console.log(localEnsign)
+
+        let homeTeamName = document.createElement("p")
+        homeTeamName.innerHTML = results[i].homeTeam.name
+        console.log(homeTeamName)
+
+        let fullTimeScore = document.createElement("p")
+        fullTimeScore.innerHTML = results[i].score.fullTime.homeTeam + " - " + results[i].score.fullTime.awayTeam
+        console.log(fullTimeScore)
+
+        let awayTeamName = document.createElement("p")
+        awayTeamName.innerHTML = results[i].awayTeam.name
+        console.log(awayTeamName)
+
+        let awayEnsign = document.createElement("img")
+        awayEnsign.setAttribute("src",  "https://crests.football-data.org/" + results[i].awayTeam.id + ".svg")
+        awayEnsign.classList.add("images-Ensign") 
+        console.log(awayEnsign)
+
+        let finalResults = [matchDate.toLocaleString(),localEnsign,homeTeamName,fullTimeScore,awayTeamName,awayEnsign]
+
+        for(j=0; j<finalResults.length; j++){
+            const td = document.createElement("td")
+            td.append(finalResults[j])
+            tr.append(td)
+        }
+        table.append(tr)
+    }
+
+}
+
+matchesTableBuilder(matchesTable)
