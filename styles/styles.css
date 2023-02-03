@@ -1,4 +1,25 @@
-.images-Ensign{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.banner{
+  padding-top: 60px;
+}
+.img-logo{
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
+}
+
+.images-Ensign {
     width: 30px;
     height: 30px;
+}
+.logo-santander{
+  width: 20px;
+  padding-bottom: 10px;
+}
+.logo-idioma{
+  width: 25px;
 }
