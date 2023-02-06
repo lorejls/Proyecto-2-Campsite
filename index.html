@@ -2,99 +2,240 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./styles/styles.css" />
-    <title>La Liga</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <link rel="stylesheet" href="./styles/card-carousel.css" />
+  <title>La Liga</title>
 </head>
 
-<body class="bg-dark">
-    <header>
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
-            <div class="container">
-              <a class="navbar-brand fw-bolder" href="#"><img class="img-logo" src="./img/Logo.png" alt="">LaLiga</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-                <div class="collapse navbar-collapse" id="mynavbar">
-                    <ul class="navbar-nav me-auto mx-auto">
-                      <li class="nav-item dropdown">
-                        <a class="nav-link text-light fw-bold
-                        px-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          LaLiga <img class="logo-santander" src="./img/Santander-white.png" alt=""> Santander
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="./pages/matches.html">Partidos</a></li>
-                          <li><a class="dropdown-item" href="./pages/standings.html">Resultados</a></li>
-                          <li><a class="dropdown-item" href="#">Estadísticas</a></li>
-                        </ul>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link text-light fw-bold px-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            LaLiga <img class="logo-santander" src="./img/Santander-white.png" alt=""> SmartBank
-                          </a>
-                          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Partidos</a></li>
-                            <li><a class="dropdown-item" href="#">Resultados</a></li>
-                            <li><a class="dropdown-item" href="#">Estadísticas</a></li>
-                          </ul>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link text-light fw-bold px-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            LaLiga <img class="logo-santander" src="./img/Santander-white.png" alt=""> Femenina
-                          </a>
-                          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Partidos</a></li>
-                            <li><a class="dropdown-item" href="#">Resultados</a></li>
-                            <li><a class="dropdown-item" href="#">Estadísticas</a></li>
-                          </ul>
-                    </ul>
-                <ul class="navbar-nav me-auto mx-auto">
-                  <li class="nav-item">
-                      <a class="nav-link fw-bold
-                      px-4 text-light"  href="./pages/matches.html">Contacto</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     <img class="logo-idioma"  src="./img/spanish.jpg" alt="español"></a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#"><img class="logo-idioma"  src="./img/spanish.jpg" alt="español"></a></li>
-                      <li><a class="dropdown-item" href="#"><img class="logo-idioma"  src="./img/english.jpg" alt="español"></a></li>
-                    </ul>
+<body>
+  <header>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bolder" href="#"><img class="img-logo" src="./img/Logo.png" alt="" />LaLiga</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto mx-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link text-light fw-bold px-4 santander" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                LaLiga
+                <img class="logo-santander" src="./img/Santander-white.png" alt="" />
+                Santander
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="./pages/matches.html">Partidos</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./pages/standings.html">Resultados</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Estadísticas</a></li>
               </ul>
-                </div>
-            </div>
-        </nav> 
-    </header> 
+            </li>
 
-<div class="container banner">
-      <div class="row">
-        <div class="card bg-dark text-white col-lg-4 col-md-4 col-sm-12">
-          <img src="./img/goles.jpg" class="card-img" alt="Goles">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-        <div class="card bg-dark text-white col-lg-4 col-md-4 col-sm-12">
-          <img src="./img/Pases-2.png" class="card-img" alt="Pases">
-          <div class="card-img-overlay position-relative">
-            <h5 class="card-title position-absolute top-0 start-0">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-        <div class="card bg-dark text-white col-lg-4 col-md-4 col-sm-12">
-          <img src="./img/Alexander.jpg" class="card-img" alt="Alexander">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
+            <li class="nav-item dropdown">
+              <a class="nav-link text-light fw-bold px-4 smartbank" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                LaLiga
+                <img class="logo-santander" src="./img/Santander-white.png" alt="" />
+                SmartBank
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Partidos</a></li>
+                <li><a class="dropdown-item" href="#">Resultados</a></li>
+                <li><a class="dropdown-item" href="#">Estadísticas</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link text-light fw-bold px-4 femenina" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                LaLiga
+                <img class="logo-santander" src="./img/Santander-white.png" alt="" />
+                Femenina
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Partidos</a></li>
+                <li><a class="dropdown-item" href="#">Resultados</a></li>
+                <li><a class="dropdown-item" href="#">Estadísticas</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav me-auto mx-auto">
+            <li class="nav-item">
+              <a class="nav-link fw-bold px-4 text-light" href="./pages/matches.html">Contacto</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img class="logo-idioma" src="./img/spanish.jpg" alt="español" /></a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><img class="logo-idioma" src="./img/spanish.jpg"
+                      alt="español" /></a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><img class="logo-idioma" src="./img/english.jpg"
+                      alt="español" /></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </nav>
+  </header>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- inicio banner -->
+  <div class="container-fluid banner">
+    <div class="main-img">
+      <h1 class="title">Comparte la pasión</h1>
+      <h2 class="title">
+        <img class="img-logo" src="/img/Logo-W.png" alt="La Liga" /><span>LaLiga</span>
+      </h2>
+    </div>
+  </div>
+  <!-- fin banner -->
+
+  <!-- inicio cards noticias -->
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+        <a href="" class="link-noticias">
+          <div class="card">
+            <img src="./img/goles.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Show de goles</h5>
+              <p class="card-text">
+                Repasa los goles y mejores jugadas de la última fecha de
+                LaLiga Santander
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+        <a href="" class="link-noticias">
+          <div class="card">
+            <img src="./img/Pases-2.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Últimos fichajes</h5>
+              <p class="card-text">
+                Así va el mercado de fichajes de invierno de LaLiga santander
+                2022/23
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+        <a href="" class="link-noticias">
+          <div class="card">
+            <img src="./img/Alexander.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Alexander Sorloth</h5>
+              <p class="card-text">
+                Conoce a Alexander Sorloth, el jugador del mes de la liga del
+                mes de enero
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+        <a href="" class="link-noticias">
+          <div class="card">
+            <img src="./img/Iñaki.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Iñaki Williams</h5>
+              <p class="card-text">
+                Gana el premio al mejor jugador africano de mitad de temporada
+                de LaLiga Santander
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- fin card noticias -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="logo-footer">
+        
+      </div>
+      <div class="textos-footer">
+        <ul><li class="LaLiga-footer"><a href="#"><img class="img-footer" src="./img/Logo-Footer.png" alt="La Liga" /> LaLiga</a></li></ul>
+        <ul class="footer-santander">
+          <li class="title-foot-sant">
+            <a class="nav-link text-light fw-bold px-4" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              LaLiga
+              <img class="logo-santander" src="./img/Santander-white.png" alt="" />
+              Santander
+            </a>
+          </li>
+          <li class="items-footer"><a href="">Partidos</a></li>
+          <li class="items-footer"><a href="">Resultados</a></li>
+          <li class="items-footer"><a href="">Estadísticas</a></li>
+        </ul>
+        <ul class="footer-santander">
+          <li class="title-foot-sant">
+            <a class="nav-link text-light fw-bold px-4" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              LaLiga
+              <img class="logo-santander" src="./img/Santander-white.png" alt="" />
+              SmartBank
+            </a>
+          </li>
+          <li class="items-footer"><a href="">Partidos</a></li>
+          <li class="items-footer"><a href="">Resultados</a></li>
+          <li class="items-footer"><a href="">Estadísticas</a></li>
+        </ul>
+        <ul class="footer-santander">
+          <li class="title-foot-sant">
+            <a class="nav-link text-light fw-bold px-4" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              LaLiga
+              <img class="logo-santander" src="./img/Santander-white.png" alt="" />
+              Femenina
+            </a>
+          </li>
+          <li class="items-footer"><a href="">Partidos</a></li>
+          <li class="items-footer"><a href="">Resultados</a></li>
+          <li class="items-footer"><a href="">Estadísticas</a></li>
+        </ul>
+        <ul class="footer-santander">
+          <li class="title-foot-sant">
+            <a class="nav-link text-light fw-bold px-4" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Contacto
+            </a>
+          </li>
+          <li class="items-footer"><a href="">Información Legal</a></li>
+          <li class="items-footer"><a href="">Términos y Condiciones</a></li>
+          <li class="items-footer"><a href="">Política de Privacidad</a></li>
+        </ul>
+        <ul>
+          <li><p class="p-footer copyright">Copyright by &copy; LL</p></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>
