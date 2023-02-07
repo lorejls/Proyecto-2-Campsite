@@ -103,7 +103,30 @@ function matchesTableBuilder(results){
         }
         table.append(tr)
     }
-
 }
 
 matchesTableBuilder(matchesTable)
+
+let inputFiltro = document.getElementById("partidos")
+let buscar = document.getElementById("buscar-partido")
+
+
+// let partidosFiltrar = matchesTable.filter(partido => partido.status == "FINISHED")
+// console.log(partidosFiltrar)
+
+buscar.addEventListener('click',()=>{
+const equiposFiltrar = matchesTable.filter((partido) =>{ 
+    if((partido.homeTeam.name.toLowerCase().includes(inputFiltro.value.toLowerCase())) ||  (partido.awayTeam.name.toLowerCase().includes(inputFiltro.value.toLowerCase()))){
+        return true
+    }else{
+        return false
+    }
+})
+
+console.log(equiposFiltrar)
+matchesTableBuilder(equiposFiltrar)
+})
+
+
+
+

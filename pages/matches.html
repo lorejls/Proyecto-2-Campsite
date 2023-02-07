@@ -9,7 +9,7 @@
     <title>Partidos</title>
 </head>
 <body>
-    <header>
+    <!-- <header>
         <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
           <div class="container">
             <a class="navbar-brand fw-bolder" href="#"><img class="img-logo" src="../img/Logo.png" alt="">LaLiga</a>
@@ -69,8 +69,26 @@
             </div>
           </div>
         </nav>
-      </header>
+      </header> -->
       
+      <input type="text" id="partidos">
+      <button type="button" id="buscar-partido">Buscar</button>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Partidos Ganados">
+        <label class="form-check-label" for="inlineRadio1">Partidos Ganados</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Partidos Perdidos">
+        <label class="form-check-label" for="inlineRadio2">Partidos Perdidos</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Partidos Empatados">
+        <label class="form-check-label" for="inlineRadio1">Partidos Empatados</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Próximos Partidos">
+        <label class="form-check-label" for="inlineRadio2">Próximos Partidos</label>
+      </div>
     <table class="matches">
         <thead class="matches-head">
             <tr>

@@ -40,11 +40,11 @@
   width: 40px;
   height: auto;
 }
-.textos-footer{
+/* .textos-footer{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
+} */
 .textos-footer ul li{
   list-style: none;
   text-decoration: none;
