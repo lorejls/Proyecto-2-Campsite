@@ -57,95 +57,153 @@
 // let homeTeamCrestThree = "https://crests.football-data.org/" + matchesData.matches[2].homeTeam.id + ".svg"
 // console.log(homeTeamCrestThree)
 
-let matchesTable = matchesData.matches
+let matchesTable = matchesData.matches;
 
-function matchesTableBuilder(results){
-    let table = document.getElementById("matches-body")
-    for(i=0; i<results.length; i++){
 
-        let tr = document.createElement("tr")
+function matchesTableBuilder(results) {
+    let table = document.getElementById("matches-body");
+    table.innerHTML = "";
+    for (i = 0; i < results.length; i++) {
+        let tr = document.createElement("tr");
 
-        let matchDayGame = document.createElement("p")
-        matchDayGame.innerHTML = results[i].matchday
-        console.log(matchDayGame)
-        
-        let matchDate =  new Date(results[i].utcDate)
-        console.log(matchDate)
+        let matchDayGame = document.createElement("p");
+        matchDayGame.innerHTML = results[i].matchday;
+        console.log(matchDayGame);
 
-        let localEnsign = document.createElement("img")
-        localEnsign.setAttribute("src",  "https://crests.football-data.org/" + results[i].homeTeam.id + ".svg")
-        localEnsign.classList.add("images-Ensign") 
-        console.log(localEnsign)
+        let matchDate = new Date(results[i].utcDate);
+        console.log(matchDate);
 
-        let homeTeamName = document.createElement("p")
-        homeTeamName.innerHTML = results[i].homeTeam.name
-        console.log(homeTeamName)
+        let localEnsign = document.createElement("img");
+        localEnsign.setAttribute(
+            "src",
+            "https://crests.football-data.org/" + results[i].homeTeam.id + ".svg"
+        );
+        localEnsign.classList.add("images-Ensign");
+        console.log(localEnsign);
 
-        let fullTimeScore = document.createElement("p")
-        fullTimeScore.innerHTML = results[i].score.fullTime.homeTeam + " - " + results[i].score.fullTime.awayTeam
-        console.log(fullTimeScore)
+        let homeTeamName = document.createElement("p");
+        homeTeamName.innerHTML = results[i].homeTeam.name;
+        console.log(homeTeamName);
 
-        let awayTeamName = document.createElement("p")
-        awayTeamName.innerHTML = results[i].awayTeam.name
-        console.log(awayTeamName)
+        let fullTimeScore = document.createElement("p");
+        fullTimeScore.innerHTML =
+            results[i].score.fullTime.homeTeam +
+            " - " +
+            results[i].score.fullTime.awayTeam;
+        console.log(fullTimeScore);
 
-        let awayEnsign = document.createElement("img")
-        awayEnsign.setAttribute("src",  "https://crests.football-data.org/" + results[i].awayTeam.id + ".svg")
-        awayEnsign.classList.add("images-Ensign") 
-        console.log(awayEnsign)
+        let awayTeamName = document.createElement("p");
+        awayTeamName.innerHTML = results[i].awayTeam.name;
+        console.log(awayTeamName);
 
-        let finalResults = [matchDayGame,matchDate.toLocaleString(),localEnsign,homeTeamName,fullTimeScore,awayTeamName,awayEnsign]
+        let awayEnsign = document.createElement("img");
+        awayEnsign.setAttribute(
+            "src",
+            "https://crests.football-data.org/" + results[i].awayTeam.id + ".svg"
+        );
+        awayEnsign.classList.add("images-Ensign");
+        console.log(awayEnsign);
 
-        for(j=0; j<finalResults.length; j++){
-            const td = document.createElement("td")
-            td.append(finalResults[j])
-            tr.append(td)
+        let finalResults = [
+            matchDayGame,
+            matchDate.toLocaleString(),
+            localEnsign,
+            homeTeamName,
+            fullTimeScore,
+            awayTeamName,
+            awayEnsign,
+        ];
+
+        for (j = 0; j < finalResults.length; j++) {
+            const td = document.createElement("td");
+            td.append(finalResults[j]);
+            tr.append(td);
         }
-        table.append(tr)
+        table.append(tr);
     }
 }
 
-matchesTableBuilder(matchesTable)
+matchesTableBuilder(matchesTable);
 
-let inputFiltro = document.getElementById("partidos")
-let buscar = document.getElementById("buscar-partido")
-let cuerpoTabla = document.getElementById("matches-body")
-let radioButtons = document.querySelector("input[type=radio]:checked")
+// let inputFiltro = document.getElementById("partidos");
+let buscar = document.getElementById("buscar-partido");
+// let radioButtons = document.querySelector("input[type=radio]:checked");
 
 // let partidosFiltrar = matchesTable.filter(partido => partido.status == "FINISHED")
 // console.log(partidosFiltrar)
 
+buscar.addEventListener("click", () => {
+    filtrar(matchesTable)
+});
 
-
-
-buscar.addEventListener('click',()=>{
-const equiposFiltrar = matchesTable.filter((partido) =>{ 
-    if((partido.homeTeam.name.toLowerCase().includes(inputFiltro.value.toLowerCase())) ||  (partido.awayTeam.name.toLowerCase().includes(inputFiltro.value.toLowerCase()))){
-        return true
-    }else{
-        return false
-    }
-})
-cuerpoTabla.innerHTML=""
-console.log(equiposFiltrar)
-matchesTableBuilder(equiposFiltrar)
-})
-
-radioButtons.addEventListener('click',()=>{
-let radioButtonsFiltro = equiposFiltrar.filter()((resultadoRadioButton)=>{
-    if(radioButtons.value === "Partidos Ganados"){
-        if((resultadoRadioButton.homeTeam.name.toLowerCase().includes(equiposFiltrar.toLowerCase) && resultadoRadioButton.score.winner === "HOME_TEAM") || (resultadoRadioButton.awayTeam.name.toLowerCase().includes(equiposFiltrar.toLowerCase)) && resultadoRadioButton.score.winner === "AWAY_TEAM"){
-            return true
-    }}
-    if(resultadoRadioButton.score.draw === "DRAW" && radioButtons.value === "Partidos Empatados"){
-        return true}
-    if(radioButtons.value === "Partidos Perdidos"){
-        if((resultadoRadioButton.homeTeam.name.toLowerCase().includes(equiposFiltrar.toLowerCase) && resultadoRadioButton.score.lost === "HOME_TEAM") || (resultadoRadioButton.toLowerCase().includes(equiposFiltrar.toLowerCase) && resultadoRadioButton.score.lost === "AWAY_TEAM")){
-            return true
+function filtrar(equipoFiltrarNuevo){
+    let inputFiltro = document.getElementById("partidos");
+    let radioButtons = document.querySelector("input[type=radio]:checked");
+    let equiposFiltrar = equipoFiltrarNuevo.filter((partido) => {
+        if (
+            partido.homeTeam.name
+            .toLowerCase()
+            .includes(inputFiltro.value.toLowerCase()) ||
+            partido.awayTeam.name
+            .toLowerCase()
+            .includes(inputFiltro.value.toLowerCase())
+        ) {
+            return true;
+        } else {
+            return false;
         }
-    }
+    });
+
+    console.log(equiposFiltrar);
+    matchesTableBuilder(equiposFiltrar);
+
+    let radioButtonsFiltro = equiposFiltrar.filter((resultadoRadioButton) => {
+        if (radioButtons.value === "PartidosGanados") {
+            console.log(radioButtons.value)
+            if (
+                (resultadoRadioButton.homeTeam.name
+                    .toLowerCase()
+                    .includes(inputFiltro.value.toLowerCase()) &&
+                    resultadoRadioButton.score.winner === "HOME_TEAM") ||
+                (resultadoRadioButton.awayTeam.name
+                    .toLowerCase()
+                    .includes(inputFiltro.value.toLowerCase()) &&
+                    resultadoRadioButton.score.winner === "AWAY_TEAM")
+            ) {
+                return true;
+            }
+        }
+        if (
+            resultadoRadioButton.score.winner === "DRAW" &&
+            radioButtons.value === "PartidosEmpatados"
+        ) {
+            return true;
+        }
+        if (radioButtons.value === "PartidosPerdidos") {
+            if (
+                (resultadoRadioButton.homeTeam.name
+                    .toLowerCase()
+                    .includes(inputFiltro.value.toLowerCase()) &&
+                    resultadoRadioButton.score.winner === "AWAY_TEAM") ||
+                (resultadoRadioButton.awayTeam.name
+                    .toLowerCase()
+                    .includes(inputFiltro.value.toLowerCase()) &&
+                    resultadoRadioButton.score.winner === "HOME_TEAM")
+            ) {
+                return true;
+            }
+            if (
+                resultadoRadioButton.status !== "FINISHED" &&
+                radioButtons.value === "ProximosPartidos"
+            ) {
+                return true;
+            }
+        }
+    });
+// console.log(radioButtons.value)
+    console.log(radioButtonsFiltro);
+    matchesTableBuilder(radioButtonsFiltro);
 }
-)
-})
+// radioButtons.addEventListener('click', () => {
 
-
+// })
