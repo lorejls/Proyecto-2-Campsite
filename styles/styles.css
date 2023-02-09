@@ -11,8 +11,8 @@
 }
 
 .images-Ensign {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 .logo-santander{
   width: 20px;
@@ -129,4 +129,29 @@
     width: 35px;
     height: auto;
   }
+}
+
+/* inicio tablas general */
+.ancho{
+  width: 60%;
+}
+thead{
+  background: rgb(37,96,125);
+background: linear-gradient(90deg, rgba(37,96,125,1) 18%, rgba(14,9,142,0.9295890231092437) 45%, rgba(99,14,150,1) 89%);
+}
+thead tr th{
+  color: white;
+}
+tbody tr td{
+  font-size: 14px;
+}
+.texto-score{
+  text-align: center;
+}
+.inputs-filtro{
+  margin-top: 8rem;
+}
+.title-temporada{
+  text-align: center;
+  margin-bottom: 3rem;
 }

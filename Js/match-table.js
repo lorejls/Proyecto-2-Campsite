@@ -1,64 +1,5 @@
-// console.log(matchesData)
-
-// jornada 1.1
-// let matchDayGame = matchesData.matches[0].matchday
-// console.log(matchDayGame)
-
-// let homeTeamName = matchesData.matches[0].homeTeam.name
-// console.log(homeTeamName)
-
-// let awayTeamName = matchesData.matches[0].awayTeam.name
-// console.log(awayTeamName)
-
-// let finalScore = matchesData.matches[0].homeTeam.name + ' ' + matchesData.matches[0].score.fullTime.homeTeam + ' - ' + matchesData.matches[0].score.fullTime.awayTeam + ' '+ matchesData.matches[0].awayTeam.name
-// console.log(finalScore)
-
-// let gameDate = matchesData.matches[0].utcDate
-// console.log(gameDate)
-
-// let homeTeamCrest = "https://crests.football-data.org/" + matchesData.matches[0].homeTeam.id + ".svg"
-// console.log(homeTeamCrest)
-
-// //jornada 1.2
-// let matchDayGameTwo = matchesData.matches[1].matchday
-// console.log(matchDayGameTwo)
-
-// let homeTeamNameTwo = matchesData.matches[1].homeTeam.name
-// console.log(homeTeamNameTwo)
-
-// let awayTeamNameTwo = matchesData.matches[1].awayTeam.name
-// console.log(awayTeamNameTwo)
-
-// let finalScoreTwo = matchesData.matches[1].homeTeam.name + ' ' + matchesData.matches[1].score.fullTime.homeTeam + ' - ' + matchesData.matches[1].score.fullTime.awayTeam + ' '+ matchesData.matches[1].awayTeam.name
-// console.log(finalScoreTwo)
-
-// let gameDateTwo = matchesData.matches[1].utcDate
-// console.log(gameDateTwo)
-
-// let homeTeamCrestTwo = "https://crests.football-data.org/" + matchesData.matches[1].homeTeam.id + ".svg"
-// console.log(homeTeamCrestTwo)
-
-// //jornada 1.3
-// let matchDayGameThree = matchesData.matches[2].matchday
-// console.log(matchDayGameThree)
-
-// let homeTeamNameThree = matchesData.matches[2].homeTeam.name
-// console.log(homeTeamNameThree)
-
-// let awayTeamNameThree = matchesData.matches[2].awayTeam.name
-// console.log(awayTeamNameThree)
-
-// let finalScoreThree = matchesData.matches[2].homeTeam.name + ' ' + matchesData.matches[2].score.fullTime.homeTeam + ' - ' + matchesData.matches[2].score.fullTime.awayTeam + ' '+ matchesData.matches[2].awayTeam.name
-// console.log(finalScoreThree)
-
-// let gameDateThree = matchesData.matches[2].utcDate
-// console.log(gameDateThree)
-
-// let homeTeamCrestThree = "https://crests.football-data.org/" + matchesData.matches[2].homeTeam.id + ".svg"
-// console.log(homeTeamCrestThree)
 
 let matchesTable = matchesData.matches;
-
 
 function matchesTableBuilder(results) {
     let table = document.getElementById("matches-body");
@@ -69,6 +10,7 @@ function matchesTableBuilder(results) {
         let matchDayGame = document.createElement("p");
         matchDayGame.innerHTML = results[i].matchday;
         console.log(matchDayGame);
+        matchDayGame.classList.add("texto-score");
 
         let matchDate = new Date(results[i].utcDate);
         console.log(matchDate);
@@ -91,6 +33,7 @@ function matchesTableBuilder(results) {
             " - " +
             results[i].score.fullTime.awayTeam;
         console.log(fullTimeScore);
+        fullTimeScore.classList.add("texto-score");
 
         let awayTeamName = document.createElement("p");
         awayTeamName.innerHTML = results[i].awayTeam.name;
@@ -103,15 +46,11 @@ function matchesTableBuilder(results) {
         );
         awayEnsign.classList.add("images-Ensign");
         console.log(awayEnsign);
-
         let finalResults = [
-            matchDayGame,
-            matchDate.toLocaleString(),
-            localEnsign,
-            homeTeamName,
-            fullTimeScore,
+            homeTeamName,localEnsign,
+            fullTimeScore,awayEnsign,
             awayTeamName,
-            awayEnsign,
+            matchDate.toLocaleString(),matchDayGame,
         ];
 
         for (j = 0; j < finalResults.length; j++) {
@@ -133,10 +72,10 @@ let buscar = document.getElementById("buscar-partido");
 // console.log(partidosFiltrar)
 
 buscar.addEventListener("click", () => {
-    filtrar(matchesTable)
+    filtrar(matchesTable);
 });
 
-function filtrar(equipoFiltrarNuevo){
+function filtrar(equipoFiltrarNuevo) {
     let inputFiltro = document.getElementById("partidos");
     let radioButtons = document.querySelector("input[type=radio]:checked");
     let equiposFiltrar = equipoFiltrarNuevo.filter((partido) => {
@@ -159,7 +98,6 @@ function filtrar(equipoFiltrarNuevo){
 
     let radioButtonsFiltro = equiposFiltrar.filter((resultadoRadioButton) => {
         if (radioButtons.value === "PartidosGanados") {
-            console.log(radioButtons.value)
             if (
                 (resultadoRadioButton.homeTeam.name
                     .toLowerCase()
@@ -191,16 +129,15 @@ function filtrar(equipoFiltrarNuevo){
                     resultadoRadioButton.score.winner === "HOME_TEAM")
             ) {
                 return true;
-            }
+            }}
             if (
                 resultadoRadioButton.status !== "FINISHED" &&
                 radioButtons.value === "ProximosPartidos"
             ) {
                 return true;
             }
-        }
-    });
-// console.log(radioButtons.value)
+        })
+    // console.log(radioButtons.value)
     console.log(radioButtonsFiltro);
     matchesTableBuilder(radioButtonsFiltro);
 }
