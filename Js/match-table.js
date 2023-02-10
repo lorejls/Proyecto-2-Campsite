@@ -1,5 +1,6 @@
 
 let matchesTable = matchesData.matches;
+let equiposFiltrar = []
 
 function matchesTableBuilder(results) {
     let table = document.getElementById("matches-body");
@@ -64,21 +65,15 @@ function matchesTableBuilder(results) {
 
 matchesTableBuilder(matchesTable);
 
-// let inputFiltro = document.getElementById("partidos");
-let buscar = document.getElementById("buscar-partido");
-// let radioButtons = document.querySelector("input[type=radio]:checked");
 
-// let partidosFiltrar = matchesTable.filter(partido => partido.status == "FINISHED")
-// console.log(partidosFiltrar)
-
-buscar.addEventListener("click", () => {
+let searchBar= document.getElementById("partidos")
+searchBar.addEventListener("keyup", () => {
     filtrar(matchesTable);
 });
 
 function filtrar(equipoFiltrarNuevo) {
     let inputFiltro = document.getElementById("partidos");
-    let radioButtons = document.querySelector("input[type=radio]:checked");
-    let equiposFiltrar = equipoFiltrarNuevo.filter((partido) => {
+    equiposFiltrar = equipoFiltrarNuevo.filter((partido) => {
         if (
             partido.homeTeam.name
             .toLowerCase()
@@ -95,52 +90,54 @@ function filtrar(equipoFiltrarNuevo) {
 
     console.log(equiposFiltrar);
     matchesTableBuilder(equiposFiltrar);
-
-    let radioButtonsFiltro = equiposFiltrar.filter((resultadoRadioButton) => {
-        if (radioButtons.value === "PartidosGanados") {
-            if (
-                (resultadoRadioButton.homeTeam.name
-                    .toLowerCase()
-                    .includes(inputFiltro.value.toLowerCase()) &&
-                    resultadoRadioButton.score.winner === "HOME_TEAM") ||
-                (resultadoRadioButton.awayTeam.name
-                    .toLowerCase()
-                    .includes(inputFiltro.value.toLowerCase()) &&
-                    resultadoRadioButton.score.winner === "AWAY_TEAM")
-            ) {
-                return true;
-            }
-        }
-        if (
-            resultadoRadioButton.score.winner === "DRAW" &&
-            radioButtons.value === "PartidosEmpatados"
-        ) {
-            return true;
-        }
-        if (radioButtons.value === "PartidosPerdidos") {
-            if (
-                (resultadoRadioButton.homeTeam.name
-                    .toLowerCase()
-                    .includes(inputFiltro.value.toLowerCase()) &&
-                    resultadoRadioButton.score.winner === "AWAY_TEAM") ||
-                (resultadoRadioButton.awayTeam.name
-                    .toLowerCase()
-                    .includes(inputFiltro.value.toLowerCase()) &&
-                    resultadoRadioButton.score.winner === "HOME_TEAM")
-            ) {
-                return true;
-            }}
-            if (
-                resultadoRadioButton.status !== "FINISHED" &&
-                radioButtons.value === "ProximosPartidos"
-            ) {
-                return true;
-            }
-        })
-    // console.log(radioButtons.value)
-    console.log(radioButtonsFiltro);
-    matchesTableBuilder(radioButtonsFiltro);
 }
-// radioButtons.addEventListener('click', () => {
 
-// })
+
+function filtroBotones(){
+    let inputFiltro = document.getElementById("partidos");
+    let radioButtons = document.querySelector("input[type=radio]:checked");
+    let radioButtonsFiltro = equiposFiltrar.filter((resultadoRadioButton) => {
+            if (radioButtons.value === "PartidosGanados") {
+                if (
+                    (resultadoRadioButton.homeTeam.name
+                        .toLowerCase()
+                        .includes(inputFiltro.value.toLowerCase()) &&
+                        resultadoRadioButton.score.winner === "HOME_TEAM") ||
+                    (resultadoRadioButton.awayTeam.name
+                        .toLowerCase()
+                        .includes(inputFiltro.value.toLowerCase()) &&
+                        resultadoRadioButton.score.winner === "AWAY_TEAM")
+                ) {
+                    return true;
+                }
+            }
+            if (
+                resultadoRadioButton.score.winner === "DRAW" &&
+                radioButtons.value === "PartidosEmpatados"
+            ) {
+                return true;
+            }
+            if (radioButtons.value === "PartidosPerdidos") {
+                if (
+                    (resultadoRadioButton.homeTeam.name
+                        .toLowerCase()
+                        .includes(inputFiltro.value.toLowerCase()) &&
+                        resultadoRadioButton.score.winner === "AWAY_TEAM") ||
+                    (resultadoRadioButton.awayTeam.name
+                        .toLowerCase()
+                        .includes(inputFiltro.value.toLowerCase()) &&
+                        resultadoRadioButton.score.winner === "HOME_TEAM")
+                ) {
+                    return true;
+                }}
+                if (
+                    resultadoRadioButton.status === "SCHEDULED" &&
+                    radioButtons.value === "ProximosPartidos"
+                ) {
+                    return true;
+                }
+})
+
+console.log(radioButtonsFiltro);
+matchesTableBuilder(radioButtonsFiltro);
+}
