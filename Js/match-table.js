@@ -1,6 +1,7 @@
 
 let matchesTable = matchesData.matches;
 let equiposFiltrar = []
+let mensajeFailure = document.getElementById("mensaje-failure")
 
 function matchesTableBuilder(results) {
     let table = document.getElementById("matches-body");
@@ -28,13 +29,15 @@ function matchesTableBuilder(results) {
         homeTeamName.innerHTML = results[i].homeTeam.name;
         console.log(homeTeamName);
 
-        let fullTimeScore = document.createElement("p");
-        fullTimeScore.innerHTML =
-            results[i].score.fullTime.homeTeam +
+        let fullTimeScore = results[i].score.fullTime.homeTeam +
+            " - " + results[i].score.fullTime.awayTeam;
+        if(fullTimeScore==="null - null"){
+            fullTimeScore= "Por jugarse"
+        }else{
+            fullTimeScore.textContent=results[i].score.fullTime.homeTeam +
             " - " +
             results[i].score.fullTime.awayTeam;
-        console.log(fullTimeScore);
-        fullTimeScore.classList.add("texto-score");
+        }
 
         let awayTeamName = document.createElement("p");
         awayTeamName.innerHTML = results[i].awayTeam.name;
@@ -53,7 +56,6 @@ function matchesTableBuilder(results) {
             awayTeamName,
             matchDate.toLocaleString(),matchDayGame,
         ];
-
         for (j = 0; j < finalResults.length; j++) {
             const td = document.createElement("td");
             td.append(finalResults[j]);
@@ -72,6 +74,7 @@ searchBar.addEventListener("keyup", () => {
 });
 
 function filtrar(equipoFiltrarNuevo) {
+
     let inputFiltro = document.getElementById("partidos");
     equiposFiltrar = equipoFiltrarNuevo.filter((partido) => {
         if (
@@ -83,9 +86,10 @@ function filtrar(equipoFiltrarNuevo) {
             .includes(inputFiltro.value.toLowerCase())
         ) {
             return true;
-        } else {
-            return false;
+        }else{
+            return false
         }
+        
     });
 
     console.log(equiposFiltrar);
@@ -140,4 +144,26 @@ function filtroBotones(){
 
 console.log(radioButtonsFiltro);
 matchesTableBuilder(radioButtonsFiltro);
+
+if((inputFiltro.value === "" && radioButtons.value === "PartidosGanados") || (inputFiltro.value === "" && radioButtons.value === "PartidosEmpatados") || (inputFiltro.value === "" && radioButtons.value === "PartidosPerdidos") || (inputFiltro.value === "" && radioButtons.value === "ProximosPartidos")){
+    return matchesTableBuilder(matchesTable)
 }
+}
+
+function reset(){
+document.getElementById("partidos").value= "";
+document.getElementById("mensaje-failure").textContent= "";
+
+let buttons = document.getElementsByName("inlineRadioOptions")
+for (let i = 0; i < buttons.length; i++) {
+    buttons [i].checked = false
+}
+}
+
+let botonBorrar = document.getElementById("borrar-busqueda")
+botonBorrar.addEventListener('click', ()=>{
+    reset()
+    matchesTableBuilder(matchesTable)
+}
+)
+
