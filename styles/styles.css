@@ -60,7 +60,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 4rem;
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
 }
 
 .title{
@@ -68,6 +68,23 @@
   text-align: center;
   font-size: 3rem;
   margin-top: 0.5rem;
+}
+.grande{
+  font-size: 36px;
+}
+.contorno{
+  border-radius: 8px;
+  -webkit-box-shadow: 8px 7px 23px 3px rgba(210, 210, 210, 1);
+  -moz-box-shadow: 8px 7px 23px 3px rgba(210, 210, 210, 1);
+  box-shadow: 8px 7px 23px 3px rgba(210, 210, 210, 1);
+}
+.contorno:hover{
+  -webkit-box-shadow: 8px 7px 23px 3px rgba(127, 76, 220, 0.14);
+  -moz-box-shadow: 8px 7px 23px 3px rgba(127, 76, 220, 0.14);
+  box-shadow: 8px 7px 23px 3px rgba(127, 76, 220, 0.14);
+}
+.card-img-top{
+  border-radius: 8px 8px 0px 0px;
 }
 .link-noticias{
   text-decoration: none;
@@ -125,6 +142,10 @@
   }
 }
 
+.cards{
+  margin-bottom: 5rem;
+}
+
 /* inicio tablas general */
 .ancho{
   width: 60%;
@@ -160,6 +181,12 @@ tbody tr td{
   flex-wrap: wrap;
   justify-content: space-between;
 }
+/* .radioButtons a{
+  text-decoration: none;
+  padding: 8px 8px;
+  background-color: #0077C8;
+  color: black;
+} */
 
 #matches-body td:nth-child(3){
   text-align: center;
@@ -167,4 +194,15 @@ tbody tr td{
 #matches-body td:nth-child(1){
   text-align: start;
 }
+.alerta{
+  background-color: white;
+  color: rgb(172, 2, 2);
+padding: 8px 16px;
+}
+.alerta span{
+  font-weight: 700;
+}
+/* .end{
+  align-content: end;
+} */
 

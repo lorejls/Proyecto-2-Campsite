@@ -1,7 +1,15 @@
 
 let matchesTable = matchesData.matches;
 let equiposFiltrar = []
-let mensajeFailure = document.getElementById("mensaje-failure")
+let inputFiltro = document.getElementById("partidos")
+let buttons = document.getElementsByName("inlineRadioOptions")
+let alerta1 = document.getElementById("alerta1")
+let alerta2 = document.getElementById("alerta2")
+let alerta3 = document.getElementById("alerta3")
+
+alerta1.style.display="none"
+alerta2.style.display="none"
+// alerta3.style.display="none"
 
 function matchesTableBuilder(results) {
     let table = document.getElementById("matches-body");
@@ -73,9 +81,14 @@ searchBar.addEventListener("keyup", () => {
     filtrar(matchesTable);
 });
 
-function filtrar(equipoFiltrarNuevo) {
+searchBar.addEventListener("keydown", () => {
+    resetKdwn()
+    filtrar(matchesTable);
+    alerta1.style.display="none"
+    alerta2.style.display="none"
+});
 
-    let inputFiltro = document.getElementById("partidos");
+function filtrar(equipoFiltrarNuevo) {
     equiposFiltrar = equipoFiltrarNuevo.filter((partido) => {
         if (
             partido.homeTeam.name
@@ -89,8 +102,10 @@ function filtrar(equipoFiltrarNuevo) {
         }else{
             return false
         }
-        
     });
+    if(equiposFiltrar.length === 0){
+        return alerta1.style.display="block"
+    }
 
     console.log(equiposFiltrar);
     matchesTableBuilder(equiposFiltrar);
@@ -98,7 +113,6 @@ function filtrar(equipoFiltrarNuevo) {
 
 
 function filtroBotones(){
-    let inputFiltro = document.getElementById("partidos");
     let radioButtons = document.querySelector("input[type=radio]:checked");
     let radioButtonsFiltro = equiposFiltrar.filter((resultadoRadioButton) => {
             if (radioButtons.value === "PartidosGanados") {
@@ -145,25 +159,36 @@ function filtroBotones(){
 console.log(radioButtonsFiltro);
 matchesTableBuilder(radioButtonsFiltro);
 
-if((inputFiltro.value === "" && radioButtons.value === "PartidosGanados") || (inputFiltro.value === "" && radioButtons.value === "PartidosEmpatados") || (inputFiltro.value === "" && radioButtons.value === "PartidosPerdidos") || (inputFiltro.value === "" && radioButtons.value === "ProximosPartidos")){
+if((inputFiltro.value == "" && radioButtons.value == "PartidosGanados") || (inputFiltro.value == "" && radioButtons.value == "PartidosEmpatados") || (inputFiltro.value === "" && radioButtons.value === "PartidosPerdidos") || (inputFiltro.value === "" && radioButtons.value === "ProximosPartidos")){
+    alerta2.style.display="block"
+    return matchesTableBuilder(matchesTable)
+}
+if((equiposFiltrar.length == 0 && radioButtons.value == "PartidosGanados") || (equiposFiltrar.length == 0 && radioButtons.value == "PartidosEmpatados") || (equiposFiltrar.length === 0 && radioButtons.value === "PartidosPerdidos") || (equiposFiltrar.length === 0 && radioButtons.value === "ProximosPartidos")){
     return matchesTableBuilder(matchesTable)
 }
 }
 
 function reset(){
 document.getElementById("partidos").value= "";
-document.getElementById("mensaje-failure").textContent= "";
-
-let buttons = document.getElementsByName("inlineRadioOptions")
-for (let i = 0; i < buttons.length; i++) {
+for (i = 0; i < buttons.length; i++) {
     buttons [i].checked = false
 }
 }
 
 let botonBorrar = document.getElementById("borrar-busqueda")
 botonBorrar.addEventListener('click', ()=>{
+    alerta1.style.display="none"
+    alerta2.style.display="none"
     reset()
     matchesTableBuilder(matchesTable)
 }
 )
+
+function resetKdwn (){
+    if(inputFiltro.length === 0 || inputFiltro.length === matchesTable.length || inputFiltro.value === ""){
+        for (i = 0; i < buttons.length; i++) {
+            buttons [i].checked = false
+        }
+}
+}
 

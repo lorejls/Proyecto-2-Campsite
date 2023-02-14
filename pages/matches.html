@@ -89,18 +89,26 @@
       </div>
     </nav>
   </header>
-
+<!-- FIN HEADER -->
     
+<!-- INICIO TABLA -->
       <div class="container inputs-filtro ancho">
         <h2 class="title-temporada">Resultados de LaLiga Santander temporada 2022/2023</h2>
           <input class="form-control me-2 " autocomplete="off" type="search" placeholder="Escribe el nombre de tu equipo" aria-label="Search" id="partidos">
-          <div class="container mensaje-hidden mensaje-fail" id="mensaje-failure"></div>
+          <div class="alert alert-light alerta" role="alert" id="alerta1">
+            El equipo que buscas <span>no pertenece</span> a LaLiga Santander 2022-2023
+          </div>
+          <div class="alert alert-light alerta" role="alert" id="alerta2">
+            Debes ingresar el nombre de tu equipo
+          </div>
+          <!-- <div class="alert alert-light" role="alert" id="alerta3">
+            Debes ingresar el nombre de tu equipo
+          </div> -->
         <h3 class="title-filtro">Ver partidos:</h3>
         <div class="container radioButtons">
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ganados" value="PartidosGanados" onclick="filtroBotones()">
         <label class="form-check-label" for="inlineRadio1">Ganados</label>
-
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="perdidos" value="PartidosPerdidos" onclick="filtroBotones()">
@@ -114,8 +122,11 @@
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="proximos" value="ProximosPartidos" onclick="filtroBotones()">
         <label class="form-check-label" for="inlineRadio2">Próximos</label>
       </div>
+      <div class="form-check form-check-inline end">
+        <!-- <a href="" class="button-busqueda" id="borrar-busqueda">Nueva búsqueda</a> -->
       <button type="reset" class="btn btn-outline-dark" id="borrar-busqueda">Nueva búsqueda</button>
     </div>
+  </div>
   </div>
 
 <div class="container ancho">
@@ -136,7 +147,7 @@
     </table>
   </div>
 
-
+<!-- INICIO FOOTER -->
   <footer class="footer">
     <div class="container-fluid">
       <div class="row">
