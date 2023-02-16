@@ -81,6 +81,15 @@ searchBar.addEventListener("keyup", () => {
     filtrar(matchesTable);
 });
 
+window.addEventListener("load", ()=>{
+    let spinner= document.getElementById("spinner")
+    spinner.style.display= "none"
+
+    spinner.addEventListener("transitionend", ()=>{
+        document.body.removeChild("spinner")
+    })
+}
+)
 searchBar.addEventListener("keydown", () => {
     resetKdwn()
     filtrar(matchesTable);
@@ -192,3 +201,22 @@ function resetKdwn (){
 }
 }
 
+// function matchdays(games) {
+//     let jornada2 = document.getElementById("formGroupExampleInput2").value;
+  
+//     let arrayJornada = games.filter((partidos) => {
+//       if (partidos.matchday === parseInt(jornada2)) {
+//         return true;
+//       } else {
+//         return false;
+//       }
+//     });
+  
+//     console.log(arrayJornada);
+//     gamesTable(arrayJornada);
+  
+//     if (arrayJornada == 0) {
+//       createAlert3();
+//       return gamesTable(partidos);
+//     }
+//   }
