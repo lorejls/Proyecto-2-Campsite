@@ -25,14 +25,51 @@
 
 // 10. Hacer console.log() para ver que todo está correcto.
 
-let matchesTable = matchesData.matches;
+// let matchesTable = matchesData.matches;
 let arrayEstadisticas = []
 let arrayEstadisticas2 = []
-let arrayEstadisticas3= []
+let arrayEstadisticas3 = []
 
-let nuevoArray= []
-let nuevoArray2= []
-let nuevoArray3= []
+let nuevoArray = []
+let nuevoArray2 = []
+let nuevoArray3 = []
+
+function getData(url) {
+    spinnerOn()
+    const cors = "https://cors-anywhere.herokuapp.com/";
+    fetch(cors + url, {
+            method: "GET",
+            headers: new Headers({
+                "X-Auth-Token": "c6b8a8b349c042b78cad4fd0f868e49a",
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+            }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            spinnerOff()
+            console.log(data)
+            estadisticas(data.matches)
+            estadisticasVisitante(data.matches)
+            estadisticas3(data.matches)
+            statisticsTableBuilder(nuevoArray)
+            visitorTableBuilder(nuevoArray2)
+            nuevoTableBuilder(nuevoArray3)
+        })
+        .catch((err) => console.log(err));
+}
+
+getData(
+    "https://api.football-data.org/v2/competitions/2014/matches?season2022"
+);
+
+function spinnerOn() {
+    document.getElementById("spinner").style.display = "block"
+}
+
+function spinnerOff() {
+    document.getElementById("spinner").style.display = "none"
+}
 
 function estadisticas(datosInic) {
 
@@ -89,17 +126,17 @@ function estadisticas(datosInic) {
     }
     console.log(arrayEstadisticas)
 
-    for( p=0; p<arrayEstadisticas.length; p++ ){
+    for (p = 0; p < arrayEstadisticas.length; p++) {
         let media = (arrayEstadisticas[p].goals / arrayEstadisticas[p].matches).toFixed(2)
         arrayEstadisticas[p].avg = media
+    }
+
+    arrayEstadisticas.sort((a, b) => b.avg - a.avg)
+    nuevoArray = arrayEstadisticas.slice(0, 5)
+    console.log(nuevoArray)
+
 }
 
-arrayEstadisticas.sort((a,b)=>b.avg-a.avg)
-nuevoArray= arrayEstadisticas.slice(0,5)
-console.log(nuevoArray)
-
-}
-estadisticas(matchesTable)
 
 
 function statisticsTableBuilder(results) {
@@ -133,7 +170,8 @@ function statisticsTableBuilder(results) {
         console.log(average);
 
         let finalResults = [
-            teamEnsign,teamName,goalsTotal,matchesPlayed,average];
+            teamEnsign, teamName, goalsTotal, matchesPlayed, average
+        ];
         for (j = 0; j < finalResults.length; j++) {
             const td = document.createElement("td");
             td.append(finalResults[j]);
@@ -142,7 +180,7 @@ function statisticsTableBuilder(results) {
         table.append(tr);
     }
 }
-statisticsTableBuilder(nuevoArray)
+
 
 
 function estadisticasVisitante(datosInic) {
@@ -180,17 +218,17 @@ function estadisticasVisitante(datosInic) {
     }
     console.log(arrayEstadisticas2)
 
-    for( p=0; p<arrayEstadisticas2.length; p++ ){
+    for (p = 0; p < arrayEstadisticas2.length; p++) {
         let media = (arrayEstadisticas2[p].goals / arrayEstadisticas2[p].matches).toFixed(2)
         arrayEstadisticas2[p].avg = media
+    }
+
+    arrayEstadisticas2.sort((a, b) => a.goals - b.goals)
+    nuevoArray2 = arrayEstadisticas2.slice(0, 5)
+    console.log(nuevoArray2)
+
 }
 
-arrayEstadisticas2.sort((a,b)=>a.goals-b.goals)
-nuevoArray2= arrayEstadisticas2.slice(0,5)
-console.log(nuevoArray2)
-
-}
-estadisticasVisitante(matchesTable)
 
 function visitorTableBuilder(results) {
     let table = document.getElementById("visitor-body");
@@ -223,7 +261,8 @@ function visitorTableBuilder(results) {
         console.log(average2);
 
         let finalResults = [
-            teamEnsign2,teamName2,goalsTotal2,matchesPlayed2,average2];
+            teamEnsign2, teamName2, goalsTotal2, matchesPlayed2, average2
+        ];
         for (j = 0; j < finalResults.length; j++) {
             const td = document.createElement("td");
             td.append(finalResults[j]);
@@ -232,7 +271,7 @@ function visitorTableBuilder(results) {
         table.append(tr);
     }
 }
-visitorTableBuilder(nuevoArray2)
+
 
 
 function estadisticas3(datosInic) {
@@ -271,12 +310,12 @@ function estadisticas3(datosInic) {
     console.log(arrayEstadisticas3)
 
 
-arrayEstadisticas3.sort((a,b)=>a.goals-b.goals)
-nuevoArray3= arrayEstadisticas3.slice(0,5)
-console.log(nuevoArray3)
+    arrayEstadisticas3.sort((a, b) => a.goals - b.goals)
+    nuevoArray3 = arrayEstadisticas3.slice(0, 5)
+    console.log(nuevoArray3)
 
 }
-estadisticas3(matchesTable)
+
 
 function nuevoTableBuilder(results) {
     let table = document.getElementById("nuevo-body");
@@ -307,7 +346,8 @@ function nuevoTableBuilder(results) {
 
 
         let finalResults = [
-            teamEnsign3,teamName3,goalsTotal3,matchesPlayed3];
+            teamEnsign3, teamName3, goalsTotal3, matchesPlayed3
+        ];
         for (j = 0; j < finalResults.length; j++) {
             const td = document.createElement("td");
             td.append(finalResults[j]);
@@ -316,4 +356,3 @@ function nuevoTableBuilder(results) {
         table.append(tr);
     }
 }
-nuevoTableBuilder(nuevoArray3)

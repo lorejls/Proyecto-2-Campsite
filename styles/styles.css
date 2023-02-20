@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 /* inicio header*/
+header{
+  margin-bottom: 4rem;
+}
 .img-logo{
     width: 40px;
     height: 40px;
@@ -52,6 +55,43 @@
 }
 /* fin footer general */
 
+/* spinner */
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#container {
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes animation {
+  0% {
+    stroke-dasharray: 1 98;
+    stroke-dashoffset: -105;
+  }
+  50% {
+    stroke-dasharray: 80 10;
+    stroke-dashoffset: -160;
+  }
+  100% {
+    stroke-dasharray: 1 98;
+    stroke-dashoffset: -300;
+  }
+}
+
+#spinner {
+  transform-origin: center;
+  animation-name: animation;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier;
+  animation-iteration-count: infinite;
+}
+/* fin spinner */
+
 .banner{
   background-image: url(/img/portada1440x811.jpg);
   width: 100%;
@@ -59,7 +99,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 4rem;
   margin-bottom: 5rem;
 }
 
@@ -205,4 +244,3 @@ padding: 8px 16px;
 /* .end{
   align-content: end;
 } */
-

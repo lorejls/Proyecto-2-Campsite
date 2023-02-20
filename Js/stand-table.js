@@ -1,29 +1,33 @@
-// let matchesPlayed = standingsData.standings[0].table[0].playedGames
-// console.log(matchesPlayed)
+// let standingsTable = standingsData.standings[0].table
 
-// let wonTotal = standingsData.standings[0].table[0].won
-// console.log(wonTotal)
 
-// let drawTotal = standingsData.standings[0].table[0].draw
-// console.log(drawTotal)
+function getData(url) {
+  spinnerOn()
+    //PASO 1 - declarar URL DE CORS 
+    const cors = "https://cors-anywhere.herokuapp.com/";
+    fetch(cors + url, {
+      method: "GET",
+      headers: new Headers({
+        "X-Auth-Token": "c6b8a8b349c042b78cad4fd0f868e49a",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        spinnerOff()
+        console.log(data)
+        tableBuilder(data.standings[0].table)
 
-// let lostTotal = standingsData.standings[0].table[0].lost
-// console.log(lostTotal)
 
-// let goalsForTotal = standingsData.standings[0].table[0].goalsFor
-// console.log(goalsForTotal)
+      })
+      .catch((err) => console.log(err));
+  }
+  
+  getData(
+    "https://api.football-data.org/v2/competitions/2014/standings?season2022"
+  );
 
-// let goalsAgainstTotal = standingsData.standings[0].table[0].goalsAgainst
-// console.log(goalsAgainstTotal)
-
-// let goalDifferenceTotal = standingsData.standings[0].table[0].goalDifference
-// console.log(goalDifferenceTotal)
-
-// let pointsTotal = standingsData.standings[0].table[0].points
-// console.log(pointsTotal)
-
-let standingsTable = standingsData.standings[0].table
-// console.log(standingsTable)
 
 function tableBuilder(results){
     let table = document.getElementById("table-body")
@@ -86,5 +90,12 @@ function tableBuilder(results){
     }
 }
 
-tableBuilder(standingsTable)
+function spinnerOn(){
+  document.getElementById("spinner").style.display="block"
+}
+
+function spinnerOff(){
+  document.getElementById("spinner").style.display="none"
+}
+
 
