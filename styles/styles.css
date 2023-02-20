@@ -1,58 +1,137 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 /* inicio header*/
-header{
+header {
   margin-bottom: 4rem;
 }
-.img-logo{
-    width: 40px;
-    height: 40px;
-    margin-right: 0.5rem;
+
+.img-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
 }
+
 .images-Ensign {
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 }
-.logo-santander{
+
+.logo-santander {
   width: 20px;
   padding-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 10px;
 }
-.logo-idioma{
+
+.logo-idioma {
   width: 25px;
 }
-.santander:hover{
-  background-color:#E32D38 ;
+
+.santander:hover {
+  background-color: #E32D38;
 }
-.smartbank:hover{
-  background-color:#0077C8 ;
+
+.smartbank:hover {
+  background-color: #0077C8;
 }
-.femenina:hover{
-  background-color:#00BF88 ;
+
+.femenina:hover {
+  background-color: #00BF88;
 }
+
 /* fin header */
 
 /* inicio footer general */
-.footer{
-  background-color: grey;
+.footer {
+  background-color: rgb(29, 29, 29);
+
 }
-.img-footer{
-  width: 40px;
+
+.footer-items {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.img-footer {
+  width: 35px;
   height: auto;
+  margin-right: 6px;
+  padding-bottom: 4px;
 }
-.textos-footer ul li{
+
+.footer-brand {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(216, 216, 216);
+}
+
+.men2 {
+  width: 100%;
+}
+
+.menu-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-legal,
+.menu-footer ul{
+  display: flex;
+  flex-direction: row;
+  align-items:start;
+  padding-left: 0;
+}
+
+.links ul,
+.menu-footer ul,
+.menu-legal ul {
+  list-style: none;
+}
+
+.links ul li,
+.menu-legal ul li {
+  display: inline-block;
   list-style: none;
   text-decoration: none;
 }
-.textos-footer ul li a{
+
+.line {
+  border: solid 1px rgb(216, 216, 216);
+  width: 100%;
+}
+
+.links ul li a,
+.menu-footer ul li a,
+.menu-legal ul li a {
   list-style: none;
   text-decoration: none;
-  color: black;
+  color:rgb(216, 216, 216);
   font-size: 14px;
   font-weight: 400;
 }
+
+.links ul li a {
+  margin-left: 25px;
+}
+
+.links ul li a i {
+  font-size: 25px;
+  color: rgb(216, 216, 216);
+}
+
 /* fin footer general */
 
 /* spinner */
@@ -60,7 +139,7 @@ header{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 #container {
@@ -73,10 +152,12 @@ header{
     stroke-dasharray: 1 98;
     stroke-dashoffset: -105;
   }
+
   50% {
     stroke-dasharray: 80 10;
     stroke-dashoffset: -160;
   }
+
   100% {
     stroke-dasharray: 1 98;
     stroke-dashoffset: -300;
@@ -90,9 +171,10 @@ header{
   animation-timing-function: cubic-bezier;
   animation-iteration-count: infinite;
 }
+
 /* fin spinner */
 
-.banner{
+.banner {
   background-image: url(/img/portada1440x811.jpg);
   width: 100%;
   height: 811px;
@@ -102,34 +184,40 @@ header{
   margin-bottom: 5rem;
 }
 
-.title{
+.title {
   color: white;
   text-align: center;
   font-size: 3rem;
   margin-top: 0.5rem;
 }
-.grande{
+
+.grande {
   font-size: 36px;
 }
-.contorno{
+
+.contorno {
   border-radius: 8px;
   -webkit-box-shadow: 8px 7px 23px 3px rgba(210, 210, 210, 1);
   -moz-box-shadow: 8px 7px 23px 3px rgba(210, 210, 210, 1);
   box-shadow: 8px 7px 23px 3px rgba(210, 210, 210, 1);
 }
-.contorno:hover{
+
+.contorno:hover {
   -webkit-box-shadow: 8px 7px 23px 3px rgba(127, 76, 220, 0.14);
   -moz-box-shadow: 8px 7px 23px 3px rgba(127, 76, 220, 0.14);
   box-shadow: 8px 7px 23px 3px rgba(127, 76, 220, 0.14);
 }
-.card-img-top{
+
+.card-img-top {
   border-radius: 8px 8px 0px 0px;
 }
-.link-noticias{
+
+.link-noticias {
   text-decoration: none;
   color: black;
 }
-.link-noticias:hover{
+
+.link-noticias:hover {
   color: black;
 }
 
@@ -142,6 +230,7 @@ header{
     margin-top: 4rem;
   }
 }
+
 @media screen and (max-width: 768px) {
   .banner {
     background-image: url(../img/portada-768x639.png);
@@ -150,17 +239,21 @@ header{
     background-size: cover;
     margin-top: 5.3rem;
   }
-  .banner h1{
-    font-size:30px ;
+
+  .banner h1 {
+    font-size: 30px;
   }
-  .banner h2{
-    font-size:30px ;
+
+  .banner h2 {
+    font-size: 30px;
   }
-  .img-logo{
+
+  .img-logo {
     width: 35px;
     height: auto;
   }
 }
+
 @media screen and (max-width: 576px) {
   .banner {
     background-image: url(../img/portada-576x513.png);
@@ -169,57 +262,77 @@ header{
     background-size: cover;
     margin-top: 3.8rem;
   }
-  .banner h1{
-    font-size:30px ;
+
+  .banner h1 {
+    font-size: 30px;
   }
-  .banner h2{
-    font-size:30px ;
+
+  .banner h2 {
+    font-size: 30px;
   }
-  .img-logo{
+
+  .img-logo {
     width: 35px;
     height: auto;
   }
 }
 
-.cards{
+.span-title {
+  font-weight: 700;
+}
+
+.black {
+  width: 50px;
+  padding-bottom: 20px;
+}
+
+.cards {
   margin-bottom: 5rem;
 }
 
 /* inicio tablas general */
-.ancho{
+.ancho {
   width: 60%;
 
 }
 
-thead{
-  background: rgb(37,96,125);
-background: linear-gradient(90deg, rgba(37,96,125,1) 18%, rgba(14,9,142,0.9295890231092437) 45%, rgba(99,14,150,1) 89%);
+thead {
+  background: rgb(37, 96, 125);
+  background: linear-gradient(90deg, rgba(37, 96, 125, 1) 18%, rgba(14, 9, 142, 0.9295890231092437) 45%, rgba(99, 14, 150, 1) 89%);
 }
-thead tr th{
+
+thead tr th {
   color: white;
 }
-tbody tr td{
+
+tbody tr td {
   font-size: 14px;
 }
-.texto-score{
+
+.texto-score {
   text-align: center;
 }
-.inputs-filtro{
+
+.inputs-filtro {
   margin-top: 8rem;
 }
-.title-temporada{
+
+.title-temporada {
   text-align: center;
   margin-bottom: 3rem;
 }
-.title-filtro{
+
+.title-filtro {
   font-size: 16px;
 }
-.radioButtons{
+
+.radioButtons {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 /* .radioButtons a{
   text-decoration: none;
   padding: 8px 8px;
@@ -227,20 +340,25 @@ tbody tr td{
   color: black;
 } */
 
-#matches-body td:nth-child(3){
+#matches-body td:nth-child(3),
+#table-body td:nth-child(1) {
   text-align: center;
 }
-#matches-body td:nth-child(1){
+
+#matches-body td:nth-child(1) {
   text-align: start;
 }
-.alerta{
+
+.alerta {
   background-color: white;
   color: rgb(172, 2, 2);
-padding: 8px 16px;
+  padding: 8px 16px;
 }
-.alerta span{
+
+.alerta span {
   font-weight: 700;
 }
+
 /* .end{
   align-content: end;
 } */

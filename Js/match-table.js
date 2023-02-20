@@ -1,4 +1,26 @@
+// Important information!!
+// When cors aren´t working correctly you must:
+// Step 1- uncomment the following variable:
 // let matchesTable = matchesData.matches;
+// // Step 2- activate the following function:
+// fetchOnOff(matchesTable)
+
+// Step 3- comment the following call (lines 14-15 and 16):
+// getData(
+//     "https://api.football-data.org/v2/competitions/2014/matches?season2022"
+// );
+
+
+getData(
+    "https://api.football-data.org/v2/competitions/2014/matches?season2022"
+);
+
+// if(matchesTable === undefined){
+//     spinnerOn()
+// }else{
+//     spinnerOff()
+// }
+
 let equiposFiltrar = []
 let inputFiltro = document.getElementById("partidos")
 let buttons = document.getElementsByName("inlineRadioOptions")
@@ -6,9 +28,11 @@ let alerta1 = document.getElementById("alerta1")
 let alerta2 = document.getElementById("alerta2")
 let alerta3 = document.getElementById("alerta3")
 
+
+
 alerta1.style.display = "none"
 alerta2.style.display = "none"
-// alerta3.style.display="none"
+alerta3.style.display = "none"
 
 function getData(url) {
     spinnerOn()
@@ -23,7 +47,7 @@ function getData(url) {
         })
         .then((response) => response.json())
         .then((data) => {
-            
+
             spinnerOff()
 
             matchesTableBuilder(data.matches);
@@ -50,11 +74,6 @@ function getData(url) {
         })
         .catch((err) => console.log(err));
 }
-
-getData(
-    "https://api.football-data.org/v2/competitions/2014/matches?season2022"
-);
-
 
 function matchesTableBuilder(results) {
     let table = document.getElementById("matches-body");
@@ -85,7 +104,7 @@ function matchesTableBuilder(results) {
         let fullTimeScore = results[i].score.fullTime.homeTeam +
             " - " + results[i].score.fullTime.awayTeam;
         if (fullTimeScore === "null - null") {
-            fullTimeScore = "Por jugarse"
+            fullTimeScore = "Por jugar"
         } else {
             fullTimeScore.textContent = results[i].score.fullTime.homeTeam +
                 " - " +
@@ -118,17 +137,42 @@ function matchesTableBuilder(results) {
     }
 }
 
+function fetchOnOff(datos) {
 
-function spinnerOn(){
-    document.getElementById("spinner").style.display="block"
+    // spinnerOff()
+    document.getElementById("spinner").style.display = "none"
+
+            matchesTableBuilder(datos);
+
+            let searchBar = document.getElementById("partidos")
+            searchBar.addEventListener("keyup", () => {
+                filtrar(datos);
+            });
+
+            searchBar.addEventListener("keydown", () => {
+                alerta1.style.display = "none"
+                alerta2.style.display = "none"
+                resetKdwn()
+                filtrar(datos);
+
+            });
+            let botonBorrar = document.getElementById("borrar-busqueda")
+            botonBorrar.addEventListener('click', () => {
+                alerta1.style.display = "none"
+                alerta2.style.display = "none"
+                reset()
+                matchesTableBuilder(datos)
+            })
 }
 
-function spinnerOff(){
-    document.getElementById("spinner").style.display="none"
+
+function spinnerOn() {
+    document.getElementById("spinner").style.display = "block"
 }
 
-
-
+function spinnerOff() {
+    document.getElementById("spinner").style.display = "none"
+}
 
 function filtrar(equipoFiltrarNuevo) {
     equiposFiltrar = equipoFiltrarNuevo.filter((partido) => {
@@ -152,7 +196,6 @@ function filtrar(equipoFiltrarNuevo) {
     console.log(equiposFiltrar);
     matchesTableBuilder(equiposFiltrar);
 }
-
 
 function filtroBotones() {
     let radioButtons = document.querySelector("input[type=radio]:checked");
@@ -197,6 +240,11 @@ function filtroBotones() {
         ) {
             return true;
         }
+        // This alert is spected to work once there are no more matches left to play on this season. 
+        // if(resultadoRadioButton.status === "FINISHED" &&
+        // radioButtons.value === "ProximosPartidos"){
+        //     return alerta3.style.display = "block"
+        // }
     })
 
     console.log(radioButtonsFiltro);
@@ -218,8 +266,6 @@ function reset() {
     }
 }
 
-
-
 function resetKdwn() {
     if (inputFiltro.length === 0 || inputFiltro.length === matchesTable.length || inputFiltro.value === "") {
         for (i = 0; i < buttons.length; i++) {
@@ -227,23 +273,3 @@ function resetKdwn() {
         }
     }
 }
-
-// function matchdays(games) {
-//     let jornada2 = document.getElementById("formGroupExampleInput2").value;
-
-//     let arrayJornada = games.filter((partidos) => {
-//       if (partidos.matchday === parseInt(jornada2)) {
-//         return true;
-//       } else {
-//         return false;
-//       }
-//     });
-
-//     console.log(arrayJornada);
-//     gamesTable(arrayJornada);
-
-//     if (arrayJornada == 0) {
-//       createAlert3();
-//       return gamesTable(partidos);
-//     }
-//   }
