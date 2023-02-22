@@ -25,7 +25,7 @@
 
 // 10. Hacer console.log() para ver que todo está correcto.
 
-// let matchesTable = matchesData.matches;
+let matchesTable = matchesData.matches;
 let arrayEstadisticas = []
 let arrayEstadisticas2 = []
 let arrayEstadisticas3 = []
@@ -33,6 +33,14 @@ let arrayEstadisticas3 = []
 let nuevoArray = []
 let nuevoArray2 = []
 let nuevoArray3 = []
+
+if (matchesTable === undefined) {
+    spinnerOn()
+  } else {
+    spinnerOff()
+  }
+
+principal(matchesTable)
 
 function getData(url) {
     spinnerOn()
@@ -59,9 +67,18 @@ function getData(url) {
         .catch((err) => console.log(err));
 }
 
-getData(
-    "https://api.football-data.org/v2/competitions/2014/matches?season2022"
-);
+// getData(
+//     "https://api.football-data.org/v2/competitions/2014/matches?season2022"
+// );
+
+function principal(datos){
+    estadisticas(datos)
+            estadisticasVisitante(datos)
+            estadisticas3(datos)
+            statisticsTableBuilder(nuevoArray)
+            visitorTableBuilder(nuevoArray2)
+            nuevoTableBuilder(nuevoArray3)
+}
 
 function spinnerOn() {
     document.getElementById("spinner").style.display = "block"
@@ -180,7 +197,6 @@ function statisticsTableBuilder(results) {
         table.append(tr);
     }
 }
-
 
 
 function estadisticasVisitante(datosInic) {

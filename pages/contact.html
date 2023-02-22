@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/styles/styles.css">
-  <title>Posiciones</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Partidos</title>
 </head>
-
 <body>
   <header>
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand fw-bolder" href="../index.html"><img class="img-logo" src="../img/Logo.png"
-            alt="" />LaLiga</a>
+        <a class="navbar-brand fw-bolder" href="../index.html"><img class="img-logo" src="../img/Logo.png" alt="" />LaLiga</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,7 +31,7 @@
                   <a class="dropdown-item" href="../pages/matches.html">Partidos</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Resultados</a>
+                  <a class="dropdown-item" href="../pages/standings.html">Resultados</a>
                 </li>
                 <li><a class="dropdown-item" href="../pages/statistics.html">Estadísticas</a></li>
               </ul>
@@ -96,61 +90,38 @@
       </div>
     </nav>
   </header>
+<!-- FIN HEADER -->
 
-  <!-- spinner -->
-  <div class="spinner" id="container">
-    <svg viewBox="0 0 100 100">
-      <defs>
-        <filter id="shadow">
-          <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#a1a1a1" />
-        </filter>
-      </defs>
-      <circle id="spinner"
-        style="fill:transparent;stroke:#646464;stroke-width: 7px;stroke-linecap: round;filter:url(#shadow);" cx="50"
-        cy="50" r="45" />
-    </svg>
+<div class="container-fluid contacto">
+  <div class="medios col-lg-4 col-md-6 col-sm-10">
+    <form action="">
+    <fieldset>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+      <input type="text" class="form-control dos" id="exampleFormControlInput1" placeholder="Escribe tu nombre">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Correo elecrónico</label>
+      <input type="email" class="form-control dos" id="exampleFormControlInput1" placeholder="mail@mail.com">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+      <textarea class="form-control dos" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe tu mensaje aquí"></textarea>
+    </div>
+    <button type="submit" class="color-btn">Enviar mensaje</button>
+  </fieldset>
+</form>
   </div>
-  <!-- spinner -->
+</div>
 
-
-  <div class="container ancho final stat">
-    <h2 class="title-temporada">Tabla de posiciones de LaLiga Santander temporada 2022/2023</h2>
-    <div class="container botones-ligas">
-      <button type="reset" class="btn sant" id="ligaSant2"> Ver LaLiga Santander</button>
-      <button type="reset" class="btn ligue1" id="ligue12">Ver Ligue 1</button>
-      <button type="reset" class="btn premier" id="premier2">Ver Premier League</button>
-      </div>
-    <table class="table table-sm table-hover table-responsive">
-      <thead class="table" id="tab-stand">
-        <tr>
-          <th>Posición</th>
-          <th></th>
-          <th>Equipo</th>
-          <th>PJ</th>
-          <th>PG</th>
-          <th>PE</th>
-          <th>PP</th>
-          <th>GF</th>
-          <th>GC</th>
-          <th>DG</th>
-          <th>Pts</th>
-        </tr>
-      </thead>
-      <tbody id="table-body">
-
-      </tbody>
-    </table>
-  </div>
-
-  <!-- INICIO FOOTER -->
-  <footer class="footer">
+<!-- INICIO FOOTER -->
+<footer class="footer">
     <div class="container pt-5 pb-4" id="logos-equipos"></div>
     <div class="container">
       <hr class="line">
     </div>
     <div class="container footer-items">
-      <div class="col col-lg-3 col-md-6 col-sm-12 col-12 logo"><a class="footer-brand" href="#"><img class="img-footer"
-            src="../img/Logo-Footer.png" alt="" />LaLiga</a>
+      <div class="col col-lg-3 col-md-6 col-sm-12 col-12 logo"><a class="footer-brand" href="#"><img class="img-footer" src="../img/Logo-Footer.png" alt=""/>LaLiga</a>
       </div>
       <div class=" col col-lg-4 col-md-6 col-sm-12 col-12 links">
         <ul>
@@ -166,24 +137,24 @@
     <div class="container men2">
       <div class="menu-footer">
         <ul>
-          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              LaLiga
-              <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
-              Santander
-            </a></li>
-          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              LaLiga
-              <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
-              SmartBank
-            </a></li>
-          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              LaLiga
-              <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
-              Femenina
-            </a></li>
+          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            LaLiga
+            <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
+            Santander
+          </a></li>
+          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            LaLiga
+            <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
+            SmartBank
+          </a></li>
+          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            LaLiga
+            <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
+            Femenina
+          </a></li>
           <li><a class="nav-link fw-bold" href="../pages/matches.html">Contacto</a></li>
         </ul>
       </div>
@@ -200,18 +171,13 @@
       </ul>
     </div>
   </footer>
-
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
-  <script src="../Js/standingsFranc.js"></script>
-  <script src="../Js/standingsIngl.js"></script>
-  <script src="/Js/standings.js"></script>
   <script src="../Js/teams.js"></script>
-  <script src="/Js/matches.js"></script>
-  <script src="/Js/match-table.js"></script>
-  <script src="../Js/next-matches.js"></script>
-  <script src="/Js/stand-table.js"></script>
-</body>
-
-</html>
+          <script src="/Js/matches.js"></script>
+          <script src="/Js/match-table.js"></script>
+          <script src="../Js/next-matches.js"></script>
+      </body>
+      </html>

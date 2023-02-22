@@ -1,9 +1,11 @@
 // Important information!!
 // When cors aren´t working correctly you must:
 // Step 1- uncomment the following variable:
-// let matchesTable = matchesData.matches;
+let matchesTable = matchesData.matches;
+let ligaFrancesa = francesa.matches
+let ligaInglesa = premier.matches
 // // Step 2- activate the following function:
-// fetchOnOff(matchesTable)
+fetchOnOff(matchesTable)
 
 // Step 3- comment the following call (lines 14-15 and 16):
 // getData(
@@ -11,15 +13,15 @@
 // );
 
 
-getData(
-    "https://api.football-data.org/v2/competitions/2014/matches?season2022"
-);
+// getData(
+//     "https://api.football-data.org/v2/competitions/2014/matches?season2022"
+// );
 
-// if(matchesTable === undefined){
-//     spinnerOn()
-// }else{
-//     spinnerOff()
-// }
+if (matchesTable === undefined) {
+    spinnerOn()
+} else {
+    spinnerOff()
+}
 
 let equiposFiltrar = []
 let inputFiltro = document.getElementById("partidos")
@@ -27,12 +29,34 @@ let buttons = document.getElementsByName("inlineRadioOptions")
 let alerta1 = document.getElementById("alerta1")
 let alerta2 = document.getElementById("alerta2")
 let alerta3 = document.getElementById("alerta3")
+let botFrancesa = document.getElementById("ligue1")
+let botInglesa = document.getElementById("premier")
+let botSant = document.getElementById("ligaSant")
+
+const urlFranc = "https://api.football-data.org/v2/competitions/2015/matches?season=2022"
+const urlIngl = "https://api.football-data.org/v2/competitions/2021/matches?season=2022"
+const urlSant = "https://api.football-data.org/v2/competitions/2014/matches?season=2022"
 
 
 
-alerta1.style.display = "none"
-alerta2.style.display = "none"
-alerta3.style.display = "none"
+botFrancesa.addEventListener("click", () => {
+    // getData(urlFranc) 
+    inputFiltro.value = ""
+    fetchOnOff(ligaFrancesa)
+    console.log(equiposFiltrar)
+});
+botInglesa.addEventListener("click", () => {
+    // getData(urlIngl)
+    inputFiltro.value = ""
+    fetchOnOff(ligaInglesa)
+});
+botSant.addEventListener("click", () => {
+    // getData(urlSant)
+    inputFiltro.value = ""
+    fetchOnOff(matchesTable)
+});
+
+
 
 function getData(url) {
     spinnerOn()
@@ -66,8 +90,8 @@ function getData(url) {
             });
             let botonBorrar = document.getElementById("borrar-busqueda")
             botonBorrar.addEventListener('click', () => {
-                alerta1.style.display = "none"
-                alerta2.style.display = "none"
+                // alerta1.style.display = "none"
+                // alerta2.style.display = "none"
                 reset()
                 matchesTableBuilder(data.matches)
             })
@@ -83,11 +107,11 @@ function matchesTableBuilder(results) {
 
         let matchDayGame = document.createElement("p");
         matchDayGame.innerHTML = results[i].matchday;
-        console.log(matchDayGame);
+        // console.log(matchDayGame);
         matchDayGame.classList.add("texto-score");
 
         let matchDate = new Date(results[i].utcDate);
-        console.log(matchDate);
+        // console.log(matchDate);
 
         let localEnsign = document.createElement("img");
         localEnsign.setAttribute(
@@ -95,11 +119,11 @@ function matchesTableBuilder(results) {
             "https://crests.football-data.org/" + results[i].homeTeam.id + ".svg"
         );
         localEnsign.classList.add("images-Ensign");
-        console.log(localEnsign);
+        // console.log(localEnsign);
 
         let homeTeamName = document.createElement("p");
         homeTeamName.innerHTML = results[i].homeTeam.name;
-        console.log(homeTeamName);
+        // console.log(homeTeamName);
 
         let fullTimeScore = results[i].score.fullTime.homeTeam +
             " - " + results[i].score.fullTime.awayTeam;
@@ -113,7 +137,7 @@ function matchesTableBuilder(results) {
 
         let awayTeamName = document.createElement("p");
         awayTeamName.innerHTML = results[i].awayTeam.name;
-        console.log(awayTeamName);
+        // console.log(awayTeamName);
 
         let awayEnsign = document.createElement("img");
         awayEnsign.setAttribute(
@@ -121,7 +145,7 @@ function matchesTableBuilder(results) {
             "https://crests.football-data.org/" + results[i].awayTeam.id + ".svg"
         );
         awayEnsign.classList.add("images-Ensign");
-        console.log(awayEnsign);
+        // console.log(awayEnsign);
         let finalResults = [
             homeTeamName, localEnsign,
             fullTimeScore, awayEnsign,
@@ -142,27 +166,28 @@ function fetchOnOff(datos) {
     // spinnerOff()
     document.getElementById("spinner").style.display = "none"
 
-            matchesTableBuilder(datos);
+    matchesTableBuilder(datos);
+    let timeOut
+    let searchBar = document.getElementById("partidos")
+    searchBar.addEventListener("keyup", () => {
+        clearTimeout(timeOut)
+        timeOut= setTimeout(filtrar, 400)
+    });
 
-            let searchBar = document.getElementById("partidos")
-            searchBar.addEventListener("keyup", () => {
-                filtrar(datos);
-            });
+    searchBar.addEventListener("keydown", () => {
+        alerta1.style.display = "none"
+        alerta2.style.display = "none"
+        resetKdwn()
+        filtrar(datos);
 
-            searchBar.addEventListener("keydown", () => {
-                alerta1.style.display = "none"
-                alerta2.style.display = "none"
-                resetKdwn()
-                filtrar(datos);
-
-            });
-            let botonBorrar = document.getElementById("borrar-busqueda")
-            botonBorrar.addEventListener('click', () => {
-                alerta1.style.display = "none"
-                alerta2.style.display = "none"
-                reset()
-                matchesTableBuilder(datos)
-            })
+    });
+    let botonBorrar = document.getElementById("borrar-busqueda")
+    botonBorrar.addEventListener('click', () => {
+        alerta1.style.display = "none"
+        alerta2.style.display = "none"
+        reset()
+        matchesTableBuilder(datos)
+    })
 }
 
 
@@ -174,7 +199,12 @@ function spinnerOff() {
     document.getElementById("spinner").style.display = "none"
 }
 
+alerta1.style.display = "none"
+alerta2.style.display = "none"
+alerta3.style.display = "none"
+
 function filtrar(equipoFiltrarNuevo) {
+    console.log(inputFiltro.value)
     equiposFiltrar = equipoFiltrarNuevo.filter((partido) => {
         if (
             partido.homeTeam.name
@@ -189,15 +219,17 @@ function filtrar(equipoFiltrarNuevo) {
             return false
         }
     });
-    if (equiposFiltrar.length === 0) {
-        return alerta1.style.display = "block"
-    }
+   
 
     console.log(equiposFiltrar);
     matchesTableBuilder(equiposFiltrar);
+    if (equiposFiltrar.length === 0) {
+        alerta1.style.display = "block"
+        return matchesTableBuilder(equipoFiltrarNuevo)
+    }
 }
 
-function filtroBotones() {
+function filtroBotones(datosNuevos) {
     let radioButtons = document.querySelector("input[type=radio]:checked");
     let radioButtonsFiltro = equiposFiltrar.filter((resultadoRadioButton) => {
         if (radioButtons.value === "PartidosGanados") {
@@ -252,10 +284,10 @@ function filtroBotones() {
 
     if ((inputFiltro.value == "" && radioButtons.value == "PartidosGanados") || (inputFiltro.value == "" && radioButtons.value == "PartidosEmpatados") || (inputFiltro.value === "" && radioButtons.value === "PartidosPerdidos") || (inputFiltro.value === "" && radioButtons.value === "ProximosPartidos")) {
         alerta2.style.display = "block"
-        return matchesTableBuilder(data.matches)
+        return matchesTableBuilder(matchesTable)
     }
     if ((equiposFiltrar.length == 0 && radioButtons.value == "PartidosGanados") || (equiposFiltrar.length == 0 && radioButtons.value == "PartidosEmpatados") || (equiposFiltrar.length === 0 && radioButtons.value === "PartidosPerdidos") || (equiposFiltrar.length === 0 && radioButtons.value === "ProximosPartidos")) {
-        return matchesTableBuilder(data.matches)
+        return matchesTableBuilder(matchesTable)
     }
 }
 

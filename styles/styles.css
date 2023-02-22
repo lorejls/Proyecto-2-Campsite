@@ -6,113 +6,100 @@
 
 /* inicio header*/
 header {
+  height: auto;
   margin-bottom: 4rem;
 }
-
+.imgL{
+  width: 30px;
+  height: 30px;
+}
+.escudos{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .img-logo {
   width: 40px;
   height: 40px;
   margin-right: 0.5rem;
 }
-
 .images-Ensign {
   width: 25px;
   height: 25px;
 }
-
 .logo-santander {
   width: 20px;
   padding-bottom: 10px;
   margin-left: 5px;
   margin-right: 10px;
 }
-
 .logo-idioma {
   width: 25px;
 }
-
 .santander:hover {
   background-color: #E32D38;
 }
-
 .smartbank:hover {
   background-color: #0077C8;
 }
-
 .femenina:hover {
   background-color: #00BF88;
 }
-
 /* fin header */
 
 /* inicio footer general */
 .footer {
-  background-color: rgb(29, 29, 29);
-
+  background-color: #232323;
 }
-
 .footer-items {
   padding-top: 3rem;
   padding-bottom: 2rem;
 }
-
 .container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 .img-footer {
   width: 35px;
   height: auto;
   margin-right: 6px;
   padding-bottom: 4px;
 }
-
 .footer-brand {
   text-decoration: none;
   font-size: 20px;
   font-weight: 600;
   color: rgb(216, 216, 216);
 }
-
-.men2 {
-  width: 100%;
-}
-
 .menu-footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-
-.menu-legal,
+.menu-legal ul,
 .menu-footer ul{
   display: flex;
   flex-direction: row;
   align-items:start;
   padding-left: 0;
-}
-
-.links ul,
-.menu-footer ul,
-.menu-legal ul {
+  margin-right: 2rem;
   list-style: none;
 }
-
+.links ul{
+  list-style: none;
+}
 .links ul li,
 .menu-legal ul li {
   display: inline-block;
   list-style: none;
   text-decoration: none;
 }
-
 .line {
   border: solid 1px rgb(216, 216, 216);
   width: 100%;
 }
-
 .links ul li a,
 .menu-footer ul li a,
 .menu-legal ul li a {
@@ -122,16 +109,24 @@ header {
   font-size: 14px;
   font-weight: 400;
 }
-
+.menu-footer ul li a,
+.menu-legal ul li a{
+  padding-left: 0px;
+  padding-right: 30px;
+}
+.links ul li a:hover,
+.menu-footer ul li a:hover,
+.menu-legal ul li a:hover,
+.logo a:hover{
+  color: rgb(255, 255, 255);
+}
 .links ul li a {
   margin-left: 25px;
 }
-
 .links ul li a i {
   font-size: 25px;
   color: rgb(216, 216, 216);
 }
-
 /* fin footer general */
 
 /* spinner */
@@ -141,12 +136,10 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 #container {
   width: 100px;
   height: 100px;
 }
-
 @keyframes animation {
   0% {
     stroke-dasharray: 1 98;
@@ -163,7 +156,6 @@ header {
     stroke-dashoffset: -300;
   }
 }
-
 #spinner {
   transform-origin: center;
   animation-name: animation;
@@ -171,9 +163,9 @@ header {
   animation-timing-function: cubic-bezier;
   animation-iteration-count: infinite;
 }
-
 /* fin spinner */
 
+/* inicio pagina principal */
 .banner {
   background-image: url(/img/portada1440x811.jpg);
   width: 100%;
@@ -183,44 +175,40 @@ header {
   background-size: cover;
   margin-bottom: 5rem;
 }
-
 .title {
   color: white;
   text-align: center;
   font-size: 3rem;
   margin-top: 0.5rem;
 }
-
+.title-heading{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
 .grande {
   font-size: 36px;
+  color: black;
 }
-
+.col{
+  padding: 0px 0px;
+}
 .contorno {
-  border-radius: 8px;
+  width: 90%;
   -webkit-box-shadow: 8px 7px 23px 3px rgba(210, 210, 210, 1);
   -moz-box-shadow: 8px 7px 23px 3px rgba(210, 210, 210, 1);
   box-shadow: 8px 7px 23px 3px rgba(210, 210, 210, 1);
 }
-
-.contorno:hover {
-  -webkit-box-shadow: 8px 7px 23px 3px rgba(127, 76, 220, 0.14);
-  -moz-box-shadow: 8px 7px 23px 3px rgba(127, 76, 220, 0.14);
-  box-shadow: 8px 7px 23px 3px rgba(127, 76, 220, 0.14);
+.card-img-top:hover{
+  scale: 1.01;
 }
-
-.card-img-top {
-  border-radius: 8px 8px 0px 0px;
-}
-
 .link-noticias {
   text-decoration: none;
   color: black;
 }
-
 .link-noticias:hover {
   color: black;
 }
-
 @media screen and (max-width: 992px) {
   .banner {
     background-image: url(../img/portada-992x778.png);
@@ -230,7 +218,6 @@ header {
     margin-top: 4rem;
   }
 }
-
 @media screen and (max-width: 768px) {
   .banner {
     background-image: url(../img/portada-768x639.png);
@@ -253,7 +240,15 @@ header {
     height: auto;
   }
 }
-
+.card-body{
+  border-top: solid 8px #E32D38;
+  height: 180px;
+  background-color: #F5F5F6;
+  background-image: url(../img/bottom-cards.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
 @media screen and (max-width: 576px) {
   .banner {
     background-image: url(../img/portada-576x513.png);
@@ -276,89 +271,164 @@ header {
     height: auto;
   }
 }
-
 .span-title {
   font-weight: 700;
 }
-
 .black {
   width: 50px;
   padding-bottom: 20px;
 }
-
 .cards {
   margin-bottom: 5rem;
 }
+/* fin pagina principal */
 
 /* inicio tablas general */
 .ancho {
-  width: 60%;
-
+  width: 70%;
 }
-
+.final{
+  margin-bottom: 5rem;
+}
 thead {
   background: rgb(37, 96, 125);
   background: linear-gradient(90deg, rgba(37, 96, 125, 1) 18%, rgba(14, 9, 142, 0.9295890231092437) 45%, rgba(99, 14, 150, 1) 89%);
 }
+.botones-ligas{
+  justify-content: flex-end;
+  margin: 0rem 0rem 3rem 0rem;
 
+}
+.sant{
+  border-radius: 0px;
+  background-color: #E32D38;
+  color: white;
+  font-weight: 500;
+  padding: 8px 24px;
+}
+.ligue1{
+  border-radius: 0px;
+  background-color: #0D1F3F;
+  color: white;
+  font-weight: 500;
+  padding: 8px 24px;
+}
+.premier{
+  border-radius: 0px;
+  background-color: #3F1052;
+  color: white;
+  font-weight: 500;
+  padding: 8px 24px;
+}
+.sant:hover,
+.ligue1:hover,
+.premier:hover{
+  color: white;
+  background-color: #3d3d3d;
+}
+.form-control{
+  border: solid 1px #a3a3a3;
+}
+.square{
+  border-radius: 0px;
+  padding: 8px 24px;
+  font-weight: 500;
+}
 thead tr th {
   color: white;
 }
-
 tbody tr td {
   font-size: 14px;
 }
-
 .texto-score {
   text-align: center;
 }
-
 .inputs-filtro {
   margin-top: 8rem;
 }
-
+.stat{
+  margin-top: 8rem;
+}
 .title-temporada {
   text-align: center;
   margin-bottom: 3rem;
 }
-
 .title-filtro {
   font-size: 16px;
 }
-
 .radioButtons {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0px 0px;
+  margin: 2rem 0rem 2rem 0rem;
 }
-
-/* .radioButtons a{
-  text-decoration: none;
-  padding: 8px 8px;
-  background-color: #0077C8;
-  color: black;
-} */
-
+.end{
+  margin-right: 0px;
+  padding-right: 0px;
+}
 #matches-body td:nth-child(3),
 #table-body td:nth-child(1) {
   text-align: center;
 }
-
 #matches-body td:nth-child(1) {
   text-align: start;
 }
-
+#tab-match th:nth-child(2) {
+  text-align: center;
+}
+#tab-stand th:nth-child(1) {
+  text-align: center;
+}
 .alerta {
   background-color: white;
   color: rgb(172, 2, 2);
   padding: 8px 16px;
 }
-
 .alerta span {
   font-weight: 700;
 }
 
-/* .end{
-  align-content: end;
-} */
+.title-top5{
+  font-size: 26px;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+}
+/* contact start */
+.contacto{
+  background-image: url(../img/banner-contacto.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 540px;
+}
+.medios{
+  float: right;
+  margin-right: 10rem;
+  margin-top: 3.5rem;
+}
+.form-label{
+  color: white;
+}
+.dos{
+  background-color: #7c7c7c;
+  color: #ffffff;
+  border: none;
+  margin-bottom: 1.5rem;
+  border-radius: 0px;
+}
+.color-btn{
+  color: white;
+  background-color: #E32D38;
+  border-radius: 0px;
+  font-weight: 500;
+  padding: 8px 16px;
+  margin-top: 2rem;
+  float: right;
+}
+.color-btn:hover{
+  background-color: white;
+  color: black;
+}

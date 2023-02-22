@@ -13,14 +13,10 @@
 </head>
 
 <body>
-  <header>
-    <div id="equipos-escudos">
-
-    </div>
-    <div class="container" id="logos-equipos"></div>
-    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+  <header class="header bg-dark">
+        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand fw-bolder" href="#"><img class="img-logo" src="./img/Logo.png" alt="" />LaLiga</a>
+        <a class="navbar-brand fw-bolder" href="#"><img class="img-logo" src="./img/Logo.png" alt="La Liga" />LaLiga</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,7 +36,7 @@
                 <li>
                   <a class="dropdown-item" href="./pages/standings.html">Resultados</a>
                 </li>
-                <li><a class="dropdown-item" href="#">Estadísticas</a></li>
+                <li><a class="dropdown-item" href="./pages/statistics.html">Estadísticas</a></li>
               </ul>
             </li>
 
@@ -75,7 +71,7 @@
 
           <ul class="navbar-nav me-auto mx-auto">
             <li class="nav-item">
-              <a class="nav-link fw-bold px-4 text-light" href="./pages/matches.html">Contacto</a>
+              <a class="nav-link fw-bold px-4 text-light" href="./pages/contact.html">Contacto</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -96,7 +92,7 @@
         </div>
       </div>
     </nav>
-  </header>
+</header>
 
   <!-- inicio banner -->
   <div class="container-fluid banner">
@@ -108,9 +104,17 @@
     </div>
   </div>
   <!-- fin banner -->
-  
+
+  <!-- next-matches start -->
+
+  <!-- <div class="cards" id="cards-next"></div> -->
+
+  <!-- next-matches end -->
+
+
   <!-- inicio cards noticias -->
-  <h3 class="title-temporada grande">Novedades de <span class="span-title"> LaLiga <img class="logo-santander black" src="./img/Santander-black.png" alt=""/>Santander</span></h3>
+  <div class="container title-heading">
+  <h3 class="title-temporada grande">Novedades de <span class="span-title"> LaLiga <img class="logo-santander black" src="./img/Santander-red.png" alt=""/>Santander</span></h3></div>
   <div class="container cards">
     <div class="row">
       <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
@@ -174,45 +178,43 @@
   <!-- fin card noticias -->
 
   <footer class="footer">
+    <div class="container pt-5 pb-4" id="logos-equipos"></div>
+    <div class="container">
+      <hr class="line">
+    </div>
     <div class="container footer-items">
       <div class="col col-lg-3 col-md-6 col-sm-12 col-12 logo"><a class="footer-brand" href="#"><img class="img-footer" src="./img/Logo-Footer.png" alt=""/>LaLiga</a>
       </div>
       <div class=" col col-lg-4 col-md-6 col-sm-12 col-12 links">
         <ul>
-          <li><a href=""><i class="fa-brands fa-square-twitter"></i></a></li>
-          <li><a href=""><i class="fa-brands fa-square-facebook"></i></a></li>
-          <li><a href=""><i class="fa-brands fa-square-instagram"></i></a></li>
-          <li><a href=""><i class="fa-brands fa-square-youtube"></i></a></li>
-          <li><a href=""><i class="fa-brands fa-vk"></i></a></li>
-          <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://twitter.com/laligaEN"><i class="fa-brands fa-square-twitter"></i></a></li>
+          <li><a href="https://www.facebook.com/LaLiga"><i class="fa-brands fa-square-facebook"></i></a></li>
+          <li><a href="https://www.instagram.com/laliga/"><i class="fa-brands fa-square-instagram"></i></a></li>
+          <li><a href="https://www.youtube.com/user/laliga"><i class="fa-brands fa-square-youtube"></i></a></li>
+          <li><a href="https://vk.com/laliga"><i class="fa-brands fa-vk"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/laliga/"><i class="fa-brands fa-linkedin"></i></a></li>
         </ul>
       </div>
-    </div>
-    <div class="container">
-      <hr class="line">
     </div>
     <div class="container men2">
       <div class="menu-footer">
         <ul>
-          <li><a class="nav-link fw-bold px-4" href="#" id="navbarDropdown" role="button"
+          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             LaLiga
-            <img class="logo-santander" src="./img/Santander-footer.png" alt="" />
-            Santander
+            <img class="logo-santander" src="./img/Santander-footer.png" alt="" />Santander
           </a></li>
-          <li><a class="nav-link fw-bold px-4" href="#" id="navbarDropdown" role="button"
+          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             LaLiga
-            <img class="logo-santander" src="./img/Santander-footer.png" alt="" />
-            SmartBank
+            <img class="logo-santander" src="./img/Santander-footer.png" alt="" />SmartBank
           </a></li>
-          <li><a class="nav-link fw-bold px-4" href="#" id="navbarDropdown" role="button"
+          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             LaLiga
-            <img class="logo-santander" src="./img/Santander-footer.png" alt="" />
-            Femenina
+            <img class="logo-santander" src="./img/Santander-footer.png" alt="" />Femenina
           </a></li>
-          <li><a class="nav-link fw-bold px-4" href="./pages/matches.html">Contacto</a></li>
+          <li><a class="nav-link fw-bold" href="./pages/matches.html">Contacto</a></li>
         </ul>
       </div>
     </div>

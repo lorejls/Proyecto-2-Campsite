@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/styles/styles.css">
     <title>Partidos</title>
 </head>
@@ -27,12 +28,12 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="../pages/matches.html">Partidos</a>
+                  <a class="dropdown-item" href="#">Partidos</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="../pages/standings.html">Resultados</a>
                 </li>
-                <li><a class="dropdown-item" href="#">Estadísticas</a></li>
+                <li><a class="dropdown-item" href="../pages/statistics.html">Estadísticas</a></li>
               </ul>
             </li>
 
@@ -67,7 +68,7 @@
 
           <ul class="navbar-nav me-auto mx-auto">
             <li class="nav-item">
-              <a class="nav-link fw-bold px-4 text-light" href="../pages/matches.html">Contacto</a>
+              <a class="nav-link fw-bold px-4 text-light" href="../pages/contact.html">Contacto</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -107,45 +108,50 @@
 
 <!-- INICIO TABLA -->
       <div class="container inputs-filtro ancho">
-        <h2 class="title-temporada">Resultados de LaLiga Santander temporada 2022/2023</h2>
-          <input class="form-control me-2 " autocomplete="off" type="search" placeholder="Escribe el nombre de tu equipo" aria-label="Search" id="partidos">
-          <div class="alert alert-light alerta" role="alert" id="alerta1">
-            El equipo que buscas <span>no pertenece</span> a LaLiga Santander 2022-2023
+        <h2 class="title-temporada">Partidos de LaLiga temporada 2022/2023</h2>
+        <div class="container botones-ligas">
+        <button type="reset" class="btn sant" id="ligaSant"> Ver LaLiga Santander</button>
+        <button type="reset" class="btn ligue1" id="ligue1">Ver Ligue 1</button>
+        <button type="reset" class="btn premier" id="premier">Ver Premier League</button>
+        </div>
+          <input class="form-control" autocomplete="off" type="search" placeholder="Escribe el nombre de tu equipo" aria-label="Search" id="partidos">
+          <div class="container alert alert-light alerta" role="alert" id="alerta1">
+            El equipo que buscas <span>no pertenece</span> a esta liga
           </div>
-          <div class="alert alert-light alerta" role="alert" id="alerta2">
+          <div class="container alert alert-light alerta" role="alert" id="alerta2">
             Debes ingresar el nombre de tu equipo
           </div>
-          <div class="alert alert-light" role="alert" id="alerta3">
+          <div class="container alert alert-light" role="alert" id="alerta3">
             La temporada ha teminado, ya no quedan partidos por jugar
           </div>
-        <h3 class="title-filtro">Ver partidos:</h3>
         <div class="container radioButtons">
+          <h3 class="title-filtro">Ver partidos:</h3>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ganados" value="PartidosGanados" onclick="filtroBotones()">
-        <label class="form-check-label" for="inlineRadio1">Ganados</label>
+        <label class="form-check-label" for="ganados">Ganados</label>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="perdidos" value="PartidosPerdidos" onclick="filtroBotones()">
-        <label class="form-check-label" for="inlineRadio2">Perdidos</label>
+        <label class="form-check-label" for="perdidos">Perdidos</label>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="empatados" value="PartidosEmpatados" onclick="filtroBotones()">
-        <label class="form-check-label" for="inlineRadio1">Empatados</label>
+        <label class="form-check-label" for="empatados">Empatados</label>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="proximos" value="ProximosPartidos" onclick="filtroBotones()">
-        <label class="form-check-label" for="inlineRadio2">Próximos</label>
+        <label class="form-check-label" for="proximos">Próximos</label>
       </div>
       <div class="form-check form-check-inline end">
         <!-- <a href="" class="button-busqueda" id="borrar-busqueda">Nueva búsqueda</a> -->
-      <button type="reset" class="btn btn-outline-dark" id="borrar-busqueda">Nueva búsqueda</button>
+      <button type="reset" class="btn btn-dark square" id="borrar-busqueda">Nueva búsqueda</button>
     </div>
   </div>
   </div>
 
 <div class="container ancho">
     <table class="table table-sm table-hover table-responsive">
-        <thead class="table">
+        <thead class="table" id="tab-match">
             <tr>
               <th>Local</th>
               <th></th>
@@ -162,80 +168,71 @@
   </div>
 
 <!-- INICIO FOOTER -->
-  <footer class="footer">
-    <div class="container-fluid">
-      <div class="row">
-      <div class="col col-lg-2 col-md-6 col-sm-12 col-12 logo-footer">
-      </div>
-      <div class="col col-lg-2 col-md-6 col-sm-12 col-12 textos-footer">
-        <ul><li class="LaLiga-footer"><a href="#"><img class="img-footer" src="../img/Logo-Footer.png" alt="La Liga" /> LaLiga</a></li></ul>
-        <ul class="footer-santander">
-          <li class="title-foot-sant">
-            <a class="nav-link text-light fw-bold px-4" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              LaLiga
-              <img class="logo-santander" src="../img/Santander-white.png" alt="" />
-              Santander
-            </a>
-          </li>
-          <li class="items-footer"><a href="">Partidos</a></li>
-          <li class="items-footer"><a href="">Resultados</a></li>
-          <li class="items-footer"><a href="">Estadísticas</a></li>
-        </ul>
-      </div>
-        <div class="col col-lg-2 col-md-6 col-sm-12 col-12 textos-footer">
-        <ul class="footer-santander">
-          <li class="title-foot-sant">
-            <a class="nav-link text-light fw-bold px-4" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              LaLiga
-              <img class="logo-santander" src="../img/Santander-white.png" alt="" />
-              SmartBank
-            </a>
-          </li>
-          <li class="items-footer"><a href="">Partidos</a></li>
-          <li class="items-footer"><a href="">Resultados</a></li>
-          <li class="items-footer"><a href="">Estadísticas</a></li>
-        </ul>
-      </div>
-      <div class="col col-lg-2 col-md-6 col-sm-12 col-12 textos-footer">
-        <ul class="footer-santander">
-          <li class="title-foot-sant">
-            <a class="nav-link text-light fw-bold px-4" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              LaLiga
-              <img class="logo-santander" src="../img/Santander-white.png" alt="" />
-              Femenina
-            </a>
-          </li>
-          <li class="items-footer"><a href="">Partidos</a></li>
-          <li class="items-footer"><a href="">Resultados</a></li>
-          <li class="items-footer"><a href="">Estadísticas</a></li>
-        </ul>
-      </div>
-      <div class="col col-lg-2 col-md-6 col-sm-12 col-12 textos-footer">
-        <ul class="footer-santander">
-          <li class="title-foot-sant">
-            <a class="nav-link text-light fw-bold px-4" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Contacto
-            </a>
-          </li>
-          <li class="items-footer"><a href="">Información Legal</a></li>
-          <li class="items-footer"><a href="">Términos y Condiciones</a></li>
-          <li class="items-footer"><a href="">Política de Privacidad</a></li>
-        </ul>
-      </div>
-      <div class="col col-lg-2 col-md-6 col-sm-12 col-12textos-footer">
-        <ul>
-          <li><p class="p-footer copyright">Copyright by &copy; LL</p></li>
-        </ul>
-      </div>
+<footer class="footer">
+  <div class="container pt-5 pb-4" id="logos-equipos"></div>
+  <div class="container">
+    <hr class="line">
+  </div>
+  <div class="container footer-items">
+    <div class="col col-lg-3 col-md-6 col-sm-12 col-12 logo"><a class="footer-brand" href="#"><img class="img-footer" src="../img/Logo-Footer.png" alt=""/>LaLiga</a>
     </div>
+    <div class=" col col-lg-4 col-md-6 col-sm-12 col-12 links">
+      <ul>
+        <li><a href="https://twitter.com/laligaEN"><i class="fa-brands fa-square-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/LaLiga"><i class="fa-brands fa-square-facebook"></i></a></li>
+        <li><a href="https://www.instagram.com/laliga/"><i class="fa-brands fa-square-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com/user/laliga"><i class="fa-brands fa-square-youtube"></i></a></li>
+        <li><a href="https://vk.com/laliga"><i class="fa-brands fa-vk"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/laliga/"><i class="fa-brands fa-linkedin"></i></a></li>
+      </ul>
     </div>
-  </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </div>
+  <div class="container men2">
+    <div class="menu-footer">
+      <ul>
+        <li><a class="nav-link fw-bold px-4" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          LaLiga
+          <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
+          Santander
+        </a></li>
+        <li><a class="nav-link fw-bold px-4" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          LaLiga
+          <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
+          SmartBank
+        </a></li>
+        <li><a class="nav-link fw-bold px-4" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          LaLiga
+          <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
+          Femenina
+        </a></li>
+        <li><a class="nav-link fw-bold px-4" href="../pages/matches.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <hr class="line">
+  </div>
+  <div class="container menu-legal">
+    <ul>
+      <li><a href="">Términos y Condiciones</a></li>
+      <li><a href="">Política de Privacidad</a></li>
+      <li><a href="">Aviso Legal</a></li>
+      <li><a href="">&copy; 2023 LaLiga</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+<script src="../Js/Francesa-data.js"></script>
+<script src="../Js/Inglesa-data.js"></script>
+<script src="../Js/teams.js"></script>
         <script src="/Js/matches.js"></script>
         <script src="/Js/match-table.js"></script>
+        <script src="../Js/next-matches.js"></script>
     </body>
     </html>

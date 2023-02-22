@@ -2,169 +2,246 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../styles/styles.css">
-    <title>Estadísticas</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../styles/styles.css">
+  <title>Estadísticas</title>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
-          <div class="container">
-            <a class="navbar-brand fw-bolder" href="../index.html"><img class="img-logo" src="../img/Logo.png" alt="" />LaLiga</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mynavbar">
-              <ul class="navbar-nav me-auto mx-auto">
-                <li class="nav-item dropdown">
-                  <a class="nav-link text-light fw-bold px-4 santander" href="#" id="navbarDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    LaLiga
-                    <img class="logo-santander" src="../img/Santander-white.png" alt="" />
-                    Santander
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                    <li>
-                      <a class="dropdown-item" href="../pages/matches.html">Partidos</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="../pages/standings.html">Resultados</a>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Estadísticas</a></li>
-                  </ul>
+  <header>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bolder" href="../index.html"><img class="img-logo" src="../img/Logo.png"
+            alt="" />LaLiga</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto mx-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link text-light fw-bold px-4 santander" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                LaLiga
+                <img class="logo-santander" src="../img/Santander-white.png" alt="" />
+                Santander
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="../pages/matches.html">Partidos</a>
                 </li>
-    
-                <li class="nav-item dropdown">
-                  <a class="nav-link text-light fw-bold px-4 smartbank" href="#" id="navbarDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    LaLiga
-                    <img class="logo-santander" src="../img/Santander-white.png" alt="" />
-                    SmartBank
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Partidos</a></li>
-                    <li><a class="dropdown-item" href="#">Resultados</a></li>
-                    <li><a class="dropdown-item" href="#">Estadísticas</a></li>
-                  </ul>
+                <li>
+                  <a class="dropdown-item" href="../pages/standings.html">Resultados</a>
                 </li>
-    
-                <li class="nav-item dropdown">
-                  <a class="nav-link text-light fw-bold px-4 femenina" href="#" id="navbarDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    LaLiga
-                    <img class="logo-santander" src="../img/Santander-white.png" alt="" />
-                    Femenina
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Partidos</a></li>
-                    <li><a class="dropdown-item" href="#">Resultados</a></li>
-                    <li><a class="dropdown-item" href="#">Estadísticas</a></li>
-                  </ul>
+                <li><a class="dropdown-item" href="#">Estadísticas</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link text-light fw-bold px-4 smartbank" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                LaLiga
+                <img class="logo-santander" src="../img/Santander-white.png" alt="" />
+                SmartBank
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Partidos</a></li>
+                <li><a class="dropdown-item" href="#">Resultados</a></li>
+                <li><a class="dropdown-item" href="#">Estadísticas</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link text-light fw-bold px-4 femenina" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                LaLiga
+                <img class="logo-santander" src="../img/Santander-white.png" alt="" />
+                Femenina
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Partidos</a></li>
+                <li><a class="dropdown-item" href="#">Resultados</a></li>
+                <li><a class="dropdown-item" href="#">Estadísticas</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav me-auto mx-auto">
+            <li class="nav-item">
+              <a class="nav-link fw-bold px-4 text-light" href="../pages/contact.html">Contacto</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img class="logo-idioma" src="../img/spanish.jpg" alt="español" /></a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="#"><img class="logo-idioma" src="../img/spanish.jpg"
+                      alt="español" /></a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><img class="logo-idioma" src="../img/english.jpg"
+                      alt="español" /></a>
                 </li>
               </ul>
-    
-              <ul class="navbar-nav me-auto mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link fw-bold px-4 text-light" href="../pages/matches.html">Contacto</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <img class="logo-idioma" src="../img/spanish.jpg" alt="español" /></a>
-                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                    <li>
-                      <a class="dropdown-item" href="#"><img class="logo-idioma" src="../img/spanish.jpg"
-                          alt="español" /></a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#"><img class="logo-idioma" src="../img/english.jpg"
-                          alt="español" /></a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- header end -->
 
-<!-- spinner -->
-<div class="spinner" id="container">
-  <svg viewBox="0 0 100 100">
-    <defs>
-      <filter id="shadow">
-        <feDropShadow dx="0" dy="0" stdDeviation="1.5" 
-          flood-color="#a1a1a1"/>
-      </filter>
-    </defs>
-    <circle id="spinner" style="fill:transparent;stroke:#646464;stroke-width: 7px;stroke-linecap: round;filter:url(#shadow);" cx="50" cy="50" r="45"/>
-</svg>
-</div>
-<!-- spinner -->
+  <!-- spinner start -->
+  <div class="spinner" id="container">
+    <svg viewBox="0 0 100 100">
+      <defs>
+        <filter id="shadow">
+          <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#a1a1a1" />
+        </filter>
+      </defs>
+      <circle id="spinner"
+        style="fill:transparent;stroke:#646464;stroke-width: 7px;stroke-linecap: round;filter:url(#shadow);" cx="50"
+        cy="50" r="45" />
+    </svg>
+  </div>
+  <!-- spinner end-->
 
-    <div class="container ancho">
-        <table class="table table-sm table-hover table-responsive">
-            <thead class="table">
-                <tr>
-                    <th></th>
-                    <th>Equipo</th>
-                    <th>Goles Anotados</th>
-                    <th>Partidos Jugados</th>
-                    <th>Goles por partido</th>
-                </tr>
-            </thead>
-            <tbody id="statistics-body">
-            </tbody>
-        </table>
+
+
+  <!-- Statistics tables start -->
+  <div class="container ancho stat">
+    <h2 class="title-temporada">Los TOP 5 de la temporada</h2>
+    <div class="container botones-ligas">
+      <button type="reset" class="btn sant" id="ligaSant"> Ver LaLiga Santander</button>
+      <button type="reset" class="btn ligue1" id="ligue1">Ver Ligue 1</button>
+      <button type="reset" class="btn premier" id="premier">Ver Premier League</button>
+      </div>
+      <h2 class="title-top5">Top 5 equipos con mejor promedio de goles por partido</h2>
+    <table class="table table-sm table-hover table-responsive">
+      <thead class="table">
+        <tr>
+          <th></th>
+          <th>Equipo</th>
+          <th>Goles Anotados</th>
+          <th>Partidos Jugados</th>
+          <th>Goles por partido</th>
+        </tr>
+      </thead>
+      <tbody id="statistics-body">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container ancho">
+    <h2 class="title-top5">Top 5 equipos con más bajo promedio de goles por partido</h2>
+    <table class="table table-sm table-hover table-responsive">
+      <thead class="table">
+        <tr>
+          <th></th>
+          <th>Equipo</th>
+          <th>Goles Anotados</th>
+          <th>Partidos Jugados</th>
+          <th>Goles por partido</th>
+        </tr>
+      </thead>
+      <tbody id="visitor-body">
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container ancho final">
+    <h2 class="title-top5">Top 5 equipos con menos goles recibidos como visitante</h2>
+    <table class="table table-sm table-hover table-responsive">
+      <thead class="table">
+        <tr>
+          <th></th>
+          <th>Equipo</th>
+          <th>Goles Recibidos</th>
+          <th>Partidos Jugados</th>
+        </tr>
+      </thead>
+      <tbody id="nuevo-body">
+      </tbody>
+    </table>
+  </div>
+  <!-- Statistics tables end -->
+
+  <!-- footer start -->
+  <footer class="footer">
+    <div class="container pt-5 pb-4" id="logos-equipos"></div>
+    <div class="container">
+      <hr class="line">
     </div>
-
-    <div class="container ancho">
-        <table class="table table-sm table-hover table-responsive">
-            <thead class="table">
-                <tr>
-                    <th></th>
-                    <th>Equipo</th>
-                    <th>Goles Anotados</th>
-                    <th>Partidos Jugados</th>
-                    <th>Goles por partido</th>
-                </tr>
-            </thead>
-            <tbody id="visitor-body">
-            </tbody>
-        </table>
+    <div class="container footer-items">
+      <div class="col col-lg-3 col-md-6 col-sm-12 col-12 logo"><a class="footer-brand" href="#"><img class="img-footer"
+            src="../img/Logo-Footer.png" alt="" />LaLiga</a>
+      </div>
+      <div class=" col col-lg-4 col-md-6 col-sm-12 col-12 links">
+        <ul>
+          <li><a href="https://twitter.com/laligaEN"><i class="fa-brands fa-square-twitter"></i></a></li>
+          <li><a href="https://www.facebook.com/LaLiga"><i class="fa-brands fa-square-facebook"></i></a></li>
+          <li><a href="https://www.instagram.com/laliga/"><i class="fa-brands fa-square-instagram"></i></a></li>
+          <li><a href="https://www.youtube.com/user/laliga"><i class="fa-brands fa-square-youtube"></i></a></li>
+          <li><a href="https://vk.com/laliga"><i class="fa-brands fa-vk"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/laliga/"><i class="fa-brands fa-linkedin"></i></a></li>
+        </ul>
+      </div>
     </div>
-
-
-    <div class="container ancho">
-        <table class="table table-sm table-hover table-responsive">
-            <thead class="table">
-                <tr>
-                    <th></th>
-                    <th>Equipo</th>
-                    <th>Goles Recibidos</th>
-                    <th>Partidos Jugados</th>
-                    <!-- <th>Goles por partido</th> -->
-                </tr>
-            </thead>
-            <tbody id="nuevo-body">
-            </tbody>
-        </table>
+    <div class="container men2">
+      <div class="menu-footer">
+        <ul>
+          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              LaLiga
+              <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
+              Santander
+            </a></li>
+          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              LaLiga
+              <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
+              SmartBank
+            </a></li>
+          <li><a class="nav-link fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              LaLiga
+              <img class="logo-santander" src="../img/Santander-footer.png" alt="" />
+              Femenina
+            </a></li>
+          <li><a class="nav-link fw-bold" href="../pages/matches.html">Contacto</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="container">
+      <hr class="line">
+    </div>
+    <div class="container menu-legal">
+      <ul>
+        <li><a href="">Términos y Condiciones</a></li>
+        <li><a href="">Política de Privacidad</a></li>
+        <li><a href="">Aviso Legal</a></li>
+        <li><a href="">&copy; 2023 LaLiga</a></li>
+      </ul>
+    </div>
+  </footer>
+  <!-- end of footer -->
 
+  <script src="../Js/teams.js"></script>
+  <script src="/Js/matches.js"></script>
+  <script src="../Js/next-matches.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+  </script>
+  <script src="/Js/statistics.js"></script>
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
-    <script src="/Js/matches.js"></script>
-    <script src="/Js/statistics.js"></script>
 </body>
 
 </html>
