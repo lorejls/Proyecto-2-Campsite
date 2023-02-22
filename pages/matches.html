@@ -46,7 +46,7 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#">Partidos</a></li>
-                <li><a class="dropdown-item" href="#">Resultados</a></li>
+                <li><a class="dropdown-item" href="#">Clasificacións</a></li>
                 <li><a class="dropdown-item" href="#">Estadísticas</a></li>
               </ul>
             </li>
@@ -108,12 +108,14 @@
 
 <!-- INICIO TABLA -->
       <div class="container inputs-filtro ancho">
+        <div class="container searBar">
         <h2 class="title-temporada">Partidos de LaLiga temporada 2022/2023</h2>
         <div class="container botones-ligas">
         <button type="reset" class="btn sant" id="ligaSant"> Ver LaLiga Santander</button>
         <button type="reset" class="btn ligue1" id="ligue1">Ver Ligue 1</button>
         <button type="reset" class="btn premier" id="premier">Ver Premier League</button>
         </div>
+      
           <input class="form-control" autocomplete="off" type="search" placeholder="Escribe el nombre de tu equipo" aria-label="Search" id="partidos">
           <div class="container alert alert-light alerta" role="alert" id="alerta1">
             El equipo que buscas <span>no pertenece</span> a esta liga
@@ -148,7 +150,7 @@
     </div>
   </div>
   </div>
-
+</div>
 <div class="container ancho">
     <table class="table table-sm table-hover table-responsive">
         <thead class="table" id="tab-match">

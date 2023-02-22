@@ -33,19 +33,19 @@ if (standingsTable === undefined) {
   spinnerOff()
 }
 
-// botFrancesa2.addEventListener("click", () => {
-//   // getData(urlFranc2) 
-//   tableBuilder(ligaFrancesa2)
+botFrancesa2.addEventListener("click", () => {
+  // getData(urlFranc2) 
+  tableBuilder(ligaFrancesa2)
 
-// });
-// botInglesa2.addEventListener("click", () => {
-//   // getData(urlIngl2)
-//   tableBuilder(botInglesa2)
-// });
-// botSant2.addEventListener("click", () => {
-//   // getData(urlSant2)
-//   tableBuilder(botSant2)
-// });
+});
+botInglesa2.addEventListener("click", () => {
+  // getData(urlIngl2)
+  tableBuilder(ligaInglesa2)
+});
+botSant2.addEventListener("click", () => {
+  // getData(urlSant2)
+  tableBuilder(standingsTable)
+});
 
 
 
@@ -75,6 +75,7 @@ function getData(url) {
 
 function tableBuilder(results){
     let table = document.getElementById("table-body")
+    table.innerHTML = "";
     for(let i=0; i<results.length; i++){
         let tr = document.createElement("tr")
 

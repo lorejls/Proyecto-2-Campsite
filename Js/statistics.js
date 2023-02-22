@@ -26,13 +26,37 @@
 // 10. Hacer console.log() para ver que todo está correcto.
 
 let matchesTable = matchesData.matches;
-let arrayEstadisticas = []
-let arrayEstadisticas2 = []
-let arrayEstadisticas3 = []
+let ligaFrancesa = francesa.matches
+let ligaInglesa = premier.matches
 
 let nuevoArray = []
 let nuevoArray2 = []
 let nuevoArray3 = []
+
+principal(matchesTable)
+
+let botFrancesa3 = document.getElementById("ligue13")
+let botInglesa3 = document.getElementById("premier3")
+let botSant3 = document.getElementById("ligaSant3")
+
+const urlFranc3 = "https://api.football-data.org/v2/competitions/2015/matches?season=2022"
+const urlIngl3 = "https://api.football-data.org/v2/competitions/2021/matches?season=2022"
+const urlSant3 = "https://api.football-data.org/v2/competitions/2014/matches?season=2022"
+
+
+botFrancesa3.addEventListener("click", () => {
+    // getData(urlFranc3) 
+    principal(ligaFrancesa)
+  
+  });
+  botInglesa3.addEventListener("click", () => {
+    // getData(urlIngl3)
+    principal(ligaInglesa)
+  });
+  botSant3.addEventListener("click", () => {
+    // getData(urlSant3)
+    principal(matchesTable)
+  });
 
 if (matchesTable === undefined) {
     spinnerOn()
@@ -40,7 +64,6 @@ if (matchesTable === undefined) {
     spinnerOff()
   }
 
-principal(matchesTable)
 
 function getData(url) {
     spinnerOn()
@@ -72,7 +95,7 @@ function getData(url) {
 // );
 
 function principal(datos){
-    estadisticas(datos)
+        estadisticas(datos)
             estadisticasVisitante(datos)
             estadisticas3(datos)
             statisticsTableBuilder(nuevoArray)
@@ -89,7 +112,7 @@ function spinnerOff() {
 }
 
 function estadisticas(datosInic) {
-
+    let arrayEstadisticas = []
     for (i = 0; i < datosInic.length; i++) {
         if (datosInic[i].status === "SCHEDULED") {
             continue
@@ -158,6 +181,7 @@ function estadisticas(datosInic) {
 
 function statisticsTableBuilder(results) {
     let table = document.getElementById("statistics-body");
+    table.innerHTML = ""
     for (i = 0; i < results.length; i++) {
         let tr = document.createElement("tr");
 
@@ -248,6 +272,7 @@ function estadisticasVisitante(datosInic) {
 
 function visitorTableBuilder(results) {
     let table = document.getElementById("visitor-body");
+    table.innerHTML = ""
     for (i = 0; i < results.length; i++) {
         let tr = document.createElement("tr");
 
@@ -335,6 +360,7 @@ function estadisticas3(datosInic) {
 
 function nuevoTableBuilder(results) {
     let table = document.getElementById("nuevo-body");
+    table.innerHTML = ""
     for (i = 0; i < results.length; i++) {
         let tr = document.createElement("tr");
 
